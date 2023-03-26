@@ -1,0 +1,12 @@
+C:\Users\ASUS\Desktop\CSMS\backend\CSMS.Entities\bin\Release\CSMS.Entities.dll.config
+C:\Users\ASUS\Desktop\CSMS\backend\CSMS.Entities\bin\Release\CSMS.Entities.dll
+C:\Users\ASUS\Desktop\CSMS\backend\CSMS.Entities\bin\Release\CSMS.Entities.pdb
+C:\Users\ASUS\Desktop\CSMS\backend\CSMS.Entities\bin\Release\EntityFramework.dll
+C:\Users\ASUS\Desktop\CSMS\backend\CSMS.Entities\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\ASUS\Desktop\CSMS\backend\CSMS.Entities\bin\Release\EntityFramework.xml
+C:\Users\ASUS\Desktop\CSMS\backend\CSMS.Entities\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\ASUS\Desktop\CSMS\backend\CSMS.Entities\obj\Release\CSMS.Entities.csproj.AssemblyReference.cache
+C:\Users\ASUS\Desktop\CSMS\backend\CSMS.Entities\obj\Release\CSMS.Entities.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\Desktop\CSMS\backend\CSMS.Entities\obj\Release\CSMS.Entities.csproj.CopyComplete
+C:\Users\ASUS\Desktop\CSMS\backend\CSMS.Entities\obj\Release\CSMS.Entities.dll
+C:\Users\ASUS\Desktop\CSMS\backend\CSMS.Entities\obj\Release\CSMS.Entities.pdb

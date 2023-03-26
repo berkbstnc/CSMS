@@ -1,0 +1,14 @@
+﻿@model CSMS.Models.IndexViewModel
+@{
+    ViewBag.Title = "Account Panel";
+}
+
+<h2>@ViewBag.Title</h2>
+<p class="text-success">@ViewBag.StatusMessage</p>
+<div class="row">
+    <div class="col-md-8">
+        <p>
+            @Html.ActionLink("Change your password", "ChangePassword", null, new { @class = "btn btn-sm btn-warning" })
+        </p>
+    </div>
+</div>

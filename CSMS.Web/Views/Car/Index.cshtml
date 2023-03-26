@@ -1,0 +1,91 @@
+﻿@model IEnumerable<CSMS.Entities.Service.Car>
+
+@{
+    ViewBag.Title = "Car Information";
+    Layout = "~/Views/Shared/_LayoutCustomer.cshtml";
+}
+
+<p>
+    @Html.ActionLink("New Car Information", "Create", null, new { @class = "btn btn-sm btn-success" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Model)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Year)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Plate)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Plate)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.CarId }, new { @class = "btn btn-sm btn-primary" })
+
+                <button type="button" onclick="silmodal(this)" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#SilModal" data-id="@item.CarId">
+                    Delete
+                </button>
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div class="modal fade" id="SilModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Delete Car Information</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Do you want to delete?
+            </div>
+            <div class="modal-footer">
+                @using (Html.BeginForm("Delete", "Car", FormMethod.Post))
+                {
+                    <input type="hidden" id="hiddenId" name="id" />
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+        function silmodal(btn) {
+            var xid = $(btn).data('id');
+            $('#hiddenId').val(xid);
+        }
+    </script>
+}

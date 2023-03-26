@@ -1,0 +1,33 @@
+﻿@model IEnumerable<CSMS.Models.ApplicationUser>
+
+@{
+    ViewBag.Title = "Users";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<table class="table">
+    <tr>
+        <th>
+            <a>User Accounts</a>
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+
+            <td>
+                @*<a href='@Url.Action("Edit", "UsersAdmin")' class="btn btn-primary">Edit</a>*@
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-sm btn-primary" })
+                @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-sm btn-warning" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-sm btn-danger" })
+            </td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,17 @@
+C:\Users\ASUS\Desktop\CSMS\backend\CSMS.DataAccessLayer\bin\Release\CSMS.DataAccessLayer.dll.config
+C:\Users\ASUS\Desktop\CSMS\backend\CSMS.DataAccessLayer\bin\Release\CSMS.DataAccessLayer.dll
+C:\Users\ASUS\Desktop\CSMS\backend\CSMS.DataAccessLayer\bin\Release\CSMS.DataAccessLayer.pdb
+C:\Users\ASUS\Desktop\CSMS\backend\CSMS.DataAccessLayer\bin\Release\CSMS.Entities.dll
+C:\Users\ASUS\Desktop\CSMS\backend\CSMS.DataAccessLayer\bin\Release\EntityFramework.dll
+C:\Users\ASUS\Desktop\CSMS\backend\CSMS.DataAccessLayer\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\ASUS\Desktop\CSMS\backend\CSMS.DataAccessLayer\bin\Release\CSMS.Entities.pdb
+C:\Users\ASUS\Desktop\CSMS\backend\CSMS.DataAccessLayer\bin\Release\CSMS.Entities.dll.config
+C:\Users\ASUS\Desktop\CSMS\backend\CSMS.DataAccessLayer\bin\Release\EntityFramework.xml
+C:\Users\ASUS\Desktop\CSMS\backend\CSMS.DataAccessLayer\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\ASUS\Desktop\CSMS\backend\CSMS.DataAccessLayer\obj\Release\CSMS.DataAccessLayer.csproj.AssemblyReference.cache
+C:\Users\ASUS\Desktop\CSMS\backend\CSMS.DataAccessLayer\obj\Release\CSMS.DataAccessLayer.Migrations.CustomerTable.resources
+C:\Users\ASUS\Desktop\CSMS\backend\CSMS.DataAccessLayer\obj\Release\CSMS.DataAccessLayer.csproj.GenerateResource.cache
+C:\Users\ASUS\Desktop\CSMS\backend\CSMS.DataAccessLayer\obj\Release\CSMS.DataAccessLayer.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\Desktop\CSMS\backend\CSMS.DataAccessLayer\obj\Release\CSMS.DataAccessLayer.csproj.CopyComplete
+C:\Users\ASUS\Desktop\CSMS\backend\CSMS.DataAccessLayer\obj\Release\CSMS.DataAccessLayer.dll
+C:\Users\ASUS\Desktop\CSMS\backend\CSMS.DataAccessLayer\obj\Release\CSMS.DataAccessLayer.pdb
