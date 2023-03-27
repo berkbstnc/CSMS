@@ -1,64 +1,109 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>@ViewBag.Title</title>
+	<link rel"stylesheet" type="text/css"
+		  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+	<link rel="stylesheet"
+		  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+	@Styles.Render("~/Content/css")
+	@Scripts.Render("~/bundles/modernizr")
 
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="/Home/Index">CSMS</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="/Home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/Home/About">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/Home/Contact" tabindex="-1" aria-disabled="true">Contact</a>
-                    </li>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="/Home/Index">
+				<img class="logo" src="~/img/Black Red and White Car Service Logo.png" style="width:75px" />
+			</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="/Home/Index"><h4>Home</h4></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/Home/About"><h4>About</h4></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/Home/Contact" tabindex="-1" aria-disabled="true"><h4>Contact</h4></a>
+					</li>
 
-                    @if (Request.IsAuthenticated && User.IsInRole("Admin"))
-                    {
-                        <li class="nav-item"><a href="/Panel/" class="nav-link text-white bg-danger">Admin Panel</a></li>
+					@if (Request.IsAuthenticated && User.IsInRole("Admin"))
+					{
+						<li class="nav-item"><a href="/Panel/" class="nav-link text-white bg-danger">Admin Panel</a></li>
 
-                    }
-                    @if (Request.IsAuthenticated && User.IsInRole("Customer"))
-                    {
-                        <li class="nav-item"><a href="/CustomerPanel/" class="nav-link text-white bg-danger">Customer Panel</a></li>
+					}
+					@if (Request.IsAuthenticated && User.IsInRole("Customer"))
+					{
+						<li class="nav-item"><a href="/CustomerPanel/" class="nav-link text-white bg-danger">Customer Panel</a></li>
 
-                    }
-                </ul>
+					}
+				</ul>
 
-                @Html.Partial("_LoginPartial")
+				@Html.Partial("_LoginPartial")
 
-            </div>
-        </div>
-    </nav>
+			</div>
+		</div>
+	</nav>
 
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
+	@RenderBody()
+	<div class="body-content">
+		
+		<footer class=" bg-dark text-white pt-5 pb-4">
 
-    </div>
+			<div class=" text-center text-md-left">
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
-    
+				<div class="row text-center text-md-left">
+
+					<div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+						<h5 class="text-uppercase mb-4 font-weight-bold ">Bahçekapı Mahallesi 2477.Sokak, Şaşmaz blv. NO:5 D-C Blok, 06797 Ankara </h5>
+					</div>
+
+					<div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+						<h5 class="text-uppercase mb-4 font-weight-bold"></h5>
+
+						<ul class="list-unstyled list-inline">
+							<li class="list-inline-item">
+								<a href="#" class="btn-floating btn-sm text-white" style="font-size:23px;"><i class="fab fa-facebook-f"></i></a>
+							</li>
+							<li class="list-inline-item">
+								<a href="#" class="btn-floating btn-sm text-white" style="font-size:23px;"><i class="fab fa-twitter"></i></a>
+							</li>
+							<li class="list-inline-item">
+								<a href="#" class="btn-floating btn-sm text-white" style="font-size:23px;"><i class="fab fa-instagram"></i></a>
+							</li>
+						</ul>
+					</div>
+
+					<div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+						<p>
+							<i class="bi bi-phone mr-3"></i> 312 567 87 87
+						</p>
+						<p>
+							<i class="fas fa-envolope mr-3"></i> contact@csms.com.tr
+						</p>
+						<h5 class="text-uppercase mb-4 font-weight-bold"></h5>
+
+					</div>
+				</div>
+
+			</div>
+
+			<p align="center">&copy; @DateTime.Now.Year - CSMS</p>
+
+		</footer>
+	</div>
+
+	@Scripts.Render("~/bundles/jquery")
+	@Scripts.Render("~/bundles/bootstrap")
+	@RenderSection("scripts", required: false)
+
 </body>
 
-<footer>
-    <p align="center">&copy; @DateTime.Now.Year - CSMS</p>
-</footer>
 
 </html>
