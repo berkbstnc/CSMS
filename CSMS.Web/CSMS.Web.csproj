@@ -170,6 +170,11 @@
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="img\atilim.jpg" />
+    <Content Include="img\Black Red and White Car Service Logo.png" />
+    <Content Include="img\repair.png" />
+    <Content Include="img\slider1.jpeg" />
+    <Content Include="img\slider2.jpeg" />
+    <Content Include="img\slider3.jpeg" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
