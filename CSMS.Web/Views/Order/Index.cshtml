@@ -1,0 +1,47 @@
+﻿@model IEnumerable<CSMS.Entities.Service.Car>
+
+@{
+    ViewBag.Title = "Searching Method";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <div class="col">
+            Search Car
+            <input type="text" class=" form-control" name="search" />
+        </div>
+    </div>
+    <br />
+    <div class="col">
+        <input type="submit" class="btn btn-secondary" value="Search" />
+    </div>
+    <br />
+
+
+}
+
+
+<hr />
+<table class="table table-sm table-responsive">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Model</th>
+            <th>Year</th>
+            <th>Type</th>
+            <th>Plate</th>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Model</td>
+            <td>@item.Year</td>
+            <td>@item.Type</td>
+            <td>@item.Plate</td>
+        </tr>
+    }
+</table>

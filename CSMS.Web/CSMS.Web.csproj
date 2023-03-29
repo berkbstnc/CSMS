@@ -260,6 +260,7 @@
     <Compile Include="Controllers\CustomerPanelController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\PanelController.cs" />
     <Compile Include="Controllers\RolesAdminController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
@@ -287,6 +288,7 @@
     <Content Include="Views\CustomerPanel\Index.cshtml" />
     <Content Include="Views\Car\Index.cshtml" />
     <Content Include="Views\Car\Create.cshtml" />
+    <Content Include="Views\Order\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

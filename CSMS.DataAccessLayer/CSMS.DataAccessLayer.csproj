@@ -52,13 +52,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataContext.cs" />
-    <Compile Include="Migrations\202303191055413_CustomerTable.cs" />
-    <Compile Include="Migrations\202303191055413_CustomerTable.designer.cs">
-      <DependentUpon>202303191055413_CustomerTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202303251639479_CarTable.cs" />
-    <Compile Include="Migrations\202303251639479_CarTable.designer.cs">
-      <DependentUpon>202303251639479_CarTable.cs</DependentUpon>
+    <Compile Include="Migrations\202303291748102_NewTables.cs" />
+    <Compile Include="Migrations\202303291748102_NewTables.designer.cs">
+      <DependentUpon>202303291748102_NewTables.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -74,11 +70,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202303191055413_CustomerTable.resx">
-      <DependentUpon>202303191055413_CustomerTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202303251639479_CarTable.resx">
-      <DependentUpon>202303251639479_CarTable.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202303291748102_NewTables.resx">
+      <DependentUpon>202303291748102_NewTables.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

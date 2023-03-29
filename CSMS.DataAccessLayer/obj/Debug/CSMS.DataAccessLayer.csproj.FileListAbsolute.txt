@@ -79,10 +79,9 @@ C:\Users\ASUS\Desktop\CSMS\CSMS.DataAccessLayer\bin\Debug\CSMS.Entities.dll.conf
 C:\Users\ASUS\Desktop\CSMS\CSMS.DataAccessLayer\bin\Debug\EntityFramework.xml
 C:\Users\ASUS\Desktop\CSMS\CSMS.DataAccessLayer\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\ASUS\Desktop\CSMS\CSMS.DataAccessLayer\obj\Debug\CSMS.DataAccessLayer.csproj.AssemblyReference.cache
-C:\Users\ASUS\Desktop\CSMS\CSMS.DataAccessLayer\obj\Debug\CSMS.DataAccessLayer.Migrations.CustomerTable.resources
-C:\Users\ASUS\Desktop\CSMS\CSMS.DataAccessLayer\obj\Debug\CSMS.DataAccessLayer.Migrations.CarTable.resources
-C:\Users\ASUS\Desktop\CSMS\CSMS.DataAccessLayer\obj\Debug\CSMS.DataAccessLayer.csproj.GenerateResource.cache
 C:\Users\ASUS\Desktop\CSMS\CSMS.DataAccessLayer\obj\Debug\CSMS.DataAccessLayer.csproj.CoreCompileInputs.cache
 C:\Users\ASUS\Desktop\CSMS\CSMS.DataAccessLayer\obj\Debug\CSMS.DataAccessLayer.csproj.CopyComplete
 C:\Users\ASUS\Desktop\CSMS\CSMS.DataAccessLayer\obj\Debug\CSMS.DataAccessLayer.dll
 C:\Users\ASUS\Desktop\CSMS\CSMS.DataAccessLayer\obj\Debug\CSMS.DataAccessLayer.pdb
+C:\Users\ASUS\Desktop\CSMS\CSMS.DataAccessLayer\obj\Debug\CSMS.DataAccessLayer.Migrations.NewTables.resources
+C:\Users\ASUS\Desktop\CSMS\CSMS.DataAccessLayer\obj\Debug\CSMS.DataAccessLayer.csproj.GenerateResource.cache

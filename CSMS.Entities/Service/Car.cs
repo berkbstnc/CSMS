@@ -14,7 +14,7 @@ namespace CSMS.Entities.Service
         public string Name { get; set; }
         public string Model { get; set; }
         public int Year { get; set; }
-        public int Type { get; set; }
+        public string Type { get; set; }
         public string Plate { get; set; }
     }
 }
