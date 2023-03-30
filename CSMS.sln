@@ -5,12 +5,6 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSMS.Web", "CSMS.Web\CSMS.Web.csproj", "{46A27ADD-B29E-41E6-A124-D8E47031A1AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSMS.BusinessLayer", "CSMS.BusinessLayer\CSMS.BusinessLayer.csproj", "{86BA6F1D-7CF8-48AE-B019-2D4C1595912E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSMS.DataAccessLayer", "CSMS.DataAccessLayer\CSMS.DataAccessLayer.csproj", "{98F94FE2-D472-4330-8AE9-59EAC7676C6C}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSMS.Entities", "CSMS.Entities\CSMS.Entities.csproj", "{D2232E1C-50D5-4B85-BD92-9E3D8D895ED7}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,18 +15,6 @@ Global
 		{46A27ADD-B29E-41E6-A124-D8E47031A1AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46A27ADD-B29E-41E6-A124-D8E47031A1AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{46A27ADD-B29E-41E6-A124-D8E47031A1AA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{86BA6F1D-7CF8-48AE-B019-2D4C1595912E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{86BA6F1D-7CF8-48AE-B019-2D4C1595912E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{86BA6F1D-7CF8-48AE-B019-2D4C1595912E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{86BA6F1D-7CF8-48AE-B019-2D4C1595912E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{98F94FE2-D472-4330-8AE9-59EAC7676C6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{98F94FE2-D472-4330-8AE9-59EAC7676C6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{98F94FE2-D472-4330-8AE9-59EAC7676C6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{98F94FE2-D472-4330-8AE9-59EAC7676C6C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D2232E1C-50D5-4B85-BD92-9E3D8D895ED7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D2232E1C-50D5-4B85-BD92-9E3D8D895ED7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D2232E1C-50D5-4B85-BD92-9E3D8D895ED7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D2232E1C-50D5-4B85-BD92-9E3D8D895ED7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

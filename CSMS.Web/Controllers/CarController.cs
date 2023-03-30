@@ -1,10 +1,7 @@
-﻿using CSMS.BusinessLayer.Abstract;
-using CSMS.Entities.Service;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
+using CSMS.Web.Abstract;
+using CSMS.Models.Service;
 
 namespace CSMS.Web.Controllers
 {

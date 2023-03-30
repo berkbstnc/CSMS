@@ -3,12 +3,17 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using CSMS.Models.Service;
 
 namespace CSMS.Models
 {
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit http://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
     {
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public string Plate { get; set; }
+        public string Address { get; set; }
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
@@ -37,6 +42,6 @@ namespace CSMS.Models
             return new ApplicationDbContext();
         }
 
-        public System.Data.Entity.DbSet<CSMS.Entities.Service.Car> Cars { get; set; }
+        public DbSet<Car> Cars { get; set; }
     }
 }

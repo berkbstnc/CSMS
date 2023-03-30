@@ -250,6 +250,8 @@
     <Content Include="Views\Account\DisplayEmail.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\IRepository.cs" />
+    <Compile Include="Abstract\Repository.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -265,13 +267,29 @@
     <Compile Include="Controllers\RolesAdminController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\UsersAdminController.cs" />
+    <Compile Include="DataContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202303271827199_InitialCreate.cs" />
+    <Compile Include="Migrations\202303271827199_InitialCreate.Designer.cs">
+      <DependentUpon>202303271827199_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303290804064_CreateCustomersTable.cs" />
+    <Compile Include="Migrations\202303290804064_CreateCustomersTable.Designer.cs">
+      <DependentUpon>202303290804064_CreateCustomersTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303290804514_CreateCarsTable.cs" />
+    <Compile Include="Migrations\202303290804514_CreateCarsTable.Designer.cs">
+      <DependentUpon>202303290804514_CreateCarsTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdminViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Service\Car.cs" />
+    <Compile Include="Models\Service\Customer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -301,14 +319,15 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CSMS.BusinessLayer\CSMS.BusinessLayer.csproj">
-      <Project>{86ba6f1d-7cf8-48ae-b019-2d4c1595912e}</Project>
-      <Name>CSMS.BusinessLayer</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CSMS.Entities\CSMS.Entities.csproj">
-      <Project>{d2232e1c-50d5-4b85-bd92-9e3d8d895ed7}</Project>
-      <Name>CSMS.Entities</Name>
-    </ProjectReference>
+    <EmbeddedResource Include="Migrations\202303271827199_InitialCreate.resx">
+      <DependentUpon>202303271827199_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303290804064_CreateCustomersTable.resx">
+      <DependentUpon>202303290804064_CreateCustomersTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303290804514_CreateCarsTable.resx">
+      <DependentUpon>202303290804514_CreateCarsTable.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
