@@ -11,8 +11,6 @@
             @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
                 @Html.AntiForgeryToken()
-                <h4>Create a new account.</h4>
-                <hr />
                 @Html.ValidationSummary("", new { @class = "text-danger" })
                 <div class="form-group">
                     @Html.LabelFor(m => m.Name, new { @class = "col-md-2 control-label" })
@@ -27,7 +25,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    @Html.LabelFor(m => m.PhoneNumber, new { @class = "col-md-2 control-label" })
+                    <a>Phone Number</a>
                     <div>
                         @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control" })
                     </div>
@@ -68,6 +66,7 @@
                         <input type="submit" class="btn btn-primary" value="Register" />
                     </div>
                 </div>
+                <br />
             }
         </div>
     </div>
