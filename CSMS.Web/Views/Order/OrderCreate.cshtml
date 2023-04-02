@@ -1,0 +1,96 @@
+﻿
+@{
+    ViewBag.Title = "Create Order";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@using (Html.BeginForm("Create", "Order"))
+{
+    <input type="hidden" name="CustomerId" value="@ViewBag.CustomerId" />
+    <div class="row">
+        <div class="col-md-4">
+            Car Km
+            <input type="text" name="CarKm" class="form-control" />
+        </div>
+        <div class="col-md-4">
+            Arrival Date
+            <input type="date" name="ArrivalDate" class="form-control" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-8">
+            Fault Record
+            <textarea class="form-control" name="Record" style="max-width:700px; height:100px;"></textarea>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col">
+            <input type="submit" class="btn btn-primary" value="Create" />
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-dark" })
+        </div>
+    </div>
+
+}
+
+
+
+
+@*<div class="row">
+        <div class="col-md-4">
+            Marka
+            <input type="text" class="form-control" />
+        </div>
+        <div class="col-md-4">
+            Model
+            <input type="text" class="form-control" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            Plaka
+            <input type="text" class="form-control" />
+        </div>
+        <div class="col-md-4">
+            Motor
+            <input type="text" class="form-control" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            Araç Km
+            <input type="text" class="form-control" />
+        </div>
+        <div class="col-md-4">
+            Model Yılı
+            <input type="text" class="form-control" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            Yakıt Türü
+            <select name="yakıt" class="form-control">
+                <option>Benzin</option>
+                <option>Dizel</option>
+                <option>Benzin/LPG</option>
+                <option>Elektrik</option>
+                <option>Hybrid</option>
+            </select>
+        </div>
+        <div class="col-md-4">
+            Geliş tarihi
+            <input type="text" class="form-control" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-8">
+            Arıza Kaydı
+            <textarea class="form-control" style="max-width:700px; height:100px;" ></textarea>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col">
+            <input type="submit" class="btn btn-primary" value="Kaydet" />
+        </div>
+    </div>*@

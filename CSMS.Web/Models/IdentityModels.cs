@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using CSMS.Models.Service;
+using CSMS.Web.Models.Service;
 
 namespace CSMS.Models
 {
@@ -42,6 +43,9 @@ namespace CSMS.Models
             return new ApplicationDbContext();
         }
 
-        public DbSet<Car> Cars { get; set; }
+        //public DbSet<Car> Cars { get; set; }
+        //public DbSet<Customer> Customers { get; set; }
+        //public DbSet<FaultRecord> FaultRecords { get; set; }
+
     }
 }

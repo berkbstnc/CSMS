@@ -794,7 +794,5 @@ C:\Users\Olcay\Documents\_projects\CSMS\CSMS.Web\bin\System.Web.Helpers.xml
 C:\Users\Olcay\Documents\_projects\CSMS\CSMS.Web\bin\System.Web.Mvc.xml
 C:\Users\Olcay\Documents\_projects\CSMS\CSMS.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\Olcay\Documents\_projects\CSMS\CSMS.Web\obj\Debug\CSMS.Web.csproj.CopyComplete
-C:\Users\ASUS\Desktop\CSMS\CSMS.Web\obj\Debug\CSMS.Web.Migrations.InitialCreate.resources
-C:\Users\ASUS\Desktop\CSMS\CSMS.Web\obj\Debug\CSMS.Web.Migrations.CreateCustomersTable.resources
-C:\Users\ASUS\Desktop\CSMS\CSMS.Web\obj\Debug\CSMS.Web.Migrations.CreateCarsTable.resources
+C:\Users\ASUS\Desktop\CSMS\CSMS.Web\obj\Debug\CSMS.Web.Migrations.DbCreated.resources
 C:\Users\ASUS\Desktop\CSMS\CSMS.Web\obj\Debug\CSMS.Web.csproj.GenerateResource.cache

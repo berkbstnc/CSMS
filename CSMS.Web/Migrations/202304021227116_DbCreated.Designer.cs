@@ -7,13 +7,13 @@ namespace CSMS.Web.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class CreateCustomersTable : IMigrationMetadata
+    public sealed partial class DbCreated : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(CreateCustomersTable));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(DbCreated));
         
         string IMigrationMetadata.Id
         {
-            get { return "202303290804064_CreateCustomersTable"; }
+            get { return "202304021227116_DbCreated"; }
         }
         
         string IMigrationMetadata.Source

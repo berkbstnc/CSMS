@@ -1,30 +1,23 @@
-﻿using System.Data.Entity.Migrations;
-using System.Linq;
-using Microsoft.AspNet.Identity.EntityFramework;
-using CSMS.Models;
-
-namespace CSMS.Web.Migrations
+﻿namespace CSMS.Web.Migrations
 {
-    internal sealed class Configuration : DbMigrationsConfiguration<ApplicationDbContext>
+    using System;
+    using System.Data.Entity;
+    using System.Data.Entity.Migrations;
+    using System.Linq;
+
+    internal sealed class Configuration : DbMigrationsConfiguration<CSMS.Web.DataContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "CSMS.Models.ApplicationDbContext";
         }
 
-        protected override void Seed(ApplicationDbContext context)
+        protected override void Seed(CSMS.Web.DataContext context)
         {
-            foreach (string role in new string[] { "Admin", "Customer" }) {
-                var isExist = !string.IsNullOrWhiteSpace((from role_ in context.Roles where role_.Name == role select role_.Name).SingleOrDefault());
-                if (isExist) continue;
+            //  This method will be called after migrating to the latest version.
 
-                context.Roles.AddOrUpdate(new IdentityRole {
-                    Name = role
-                });
-            }
-
-            context.SaveChanges();
+            //  You can use the DbSet<T>.AddOrUpdate() helper extension method
+            //  to avoid creating duplicate seed data.
         }
     }
 }

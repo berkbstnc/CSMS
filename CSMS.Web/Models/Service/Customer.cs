@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CSMS.Web.Models.Service;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -20,5 +21,6 @@ namespace CSMS.Models.Service
         public string Email { get; set; }
         public string Plate { get; set; }
         public string Address { get; set; }
+        public List<FaultRecord> FaultRecords { get; set; }
     }
 }

@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<CSMS.Models.Service.Car>
 
 @{
-    ViewBag.Title = "Searching Method";
+    ViewBag.Title = "Car List";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
@@ -27,21 +27,24 @@
 <table class="table table-sm table-responsive">
     <thead>
         <tr>
-            <th>Name</th>
+            <th>Plate</th>
+            <th>Brand</th>
             <th>Model</th>
             <th>Year</th>
             <th>Type</th>
-            <th>Plate</th>
         </tr>
     </thead>
     @foreach (var item in Model)
     {
         <tr>
+            <td>@item.Plate</td>
             <td>@item.Name</td>
             <td>@item.Model</td>
             <td>@item.Year</td>
             <td>@item.Type</td>
-            <td>@item.Plate</td>
+            <td>
+                @Html.ActionLink("Create Fault Record", "OrderCreate", new { customerid = item.CarId }, new { @class = "btn btn-sm btn-success" })
+            </td>
         </tr>
     }
 </table>

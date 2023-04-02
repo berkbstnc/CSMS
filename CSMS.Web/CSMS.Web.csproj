@@ -271,17 +271,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202303271827199_InitialCreate.cs" />
-    <Compile Include="Migrations\202303271827199_InitialCreate.Designer.cs">
-      <DependentUpon>202303271827199_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202303290804064_CreateCustomersTable.cs" />
-    <Compile Include="Migrations\202303290804064_CreateCustomersTable.Designer.cs">
-      <DependentUpon>202303290804064_CreateCustomersTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202303290804514_CreateCarsTable.cs" />
-    <Compile Include="Migrations\202303290804514_CreateCarsTable.Designer.cs">
-      <DependentUpon>202303290804514_CreateCarsTable.cs</DependentUpon>
+    <Compile Include="Migrations\202304021227116_DbCreated.cs" />
+    <Compile Include="Migrations\202304021227116_DbCreated.designer.cs">
+      <DependentUpon>202304021227116_DbCreated.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -290,6 +282,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Service\Car.cs" />
     <Compile Include="Models\Service\Customer.cs" />
+    <Compile Include="Models\Service\FaultRecord.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -308,6 +301,8 @@
     <Content Include="Views\Car\Create.cshtml" />
     <Content Include="Views\Order\Index.cshtml" />
     <Content Include="Views\Car\Edit.cshtml" />
+    <Content Include="Views\Order\OrderCreate.cshtml" />
+    <Content Include="Views\Order\OpenedOrders.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -319,14 +314,8 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202303271827199_InitialCreate.resx">
-      <DependentUpon>202303271827199_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202303290804064_CreateCustomersTable.resx">
-      <DependentUpon>202303290804064_CreateCustomersTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202303290804514_CreateCarsTable.resx">
-      <DependentUpon>202303290804514_CreateCarsTable.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202304021227116_DbCreated.resx">
+      <DependentUpon>202304021227116_DbCreated.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
