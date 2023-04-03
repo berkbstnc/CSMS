@@ -501,8 +501,6 @@ C:\Users\Berk\Desktop\CSMS\CSMS.Web\bin\roslyn\vbc.rsp
 C:\Users\Berk\Desktop\CSMS\CSMS.Web\bin\roslyn\VBCSCompiler.exe
 C:\Users\Berk\Desktop\CSMS\CSMS.Web\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\Berk\Desktop\CSMS\CSMS.Web\bin\Antlr3.Runtime.dll
-C:\Users\Berk\Desktop\CSMS\CSMS.Web\bin\CSMS.BusinessLayer.dll
-C:\Users\Berk\Desktop\CSMS\CSMS.Web\bin\CSMS.Entities.dll
 C:\Users\Berk\Desktop\CSMS\CSMS.Web\bin\EntityFramework.dll
 C:\Users\Berk\Desktop\CSMS\CSMS.Web\bin\EntityFramework.SqlServer.dll
 C:\Users\Berk\Desktop\CSMS\CSMS.Web\bin\Microsoft.AspNet.Identity.Core.dll
@@ -529,11 +527,6 @@ C:\Users\Berk\Desktop\CSMS\CSMS.Web\bin\System.Web.Webpages.Deployment.dll
 C:\Users\Berk\Desktop\CSMS\CSMS.Web\bin\System.Web.Webpages.dll
 C:\Users\Berk\Desktop\CSMS\CSMS.Web\bin\System.Web.Webpages.Razor.dll
 C:\Users\Berk\Desktop\CSMS\CSMS.Web\bin\WebGrease.dll
-C:\Users\Berk\Desktop\CSMS\CSMS.Web\bin\CSMS.DataAccessLayer.dll
-C:\Users\Berk\Desktop\CSMS\CSMS.Web\bin\CSMS.BusinessLayer.pdb
-C:\Users\Berk\Desktop\CSMS\CSMS.Web\bin\CSMS.BusinessLayer.dll.config
-C:\Users\Berk\Desktop\CSMS\CSMS.Web\bin\CSMS.Entities.pdb
-C:\Users\Berk\Desktop\CSMS\CSMS.Web\bin\CSMS.Entities.dll.config
 C:\Users\Berk\Desktop\CSMS\CSMS.Web\bin\Antlr3.Runtime.pdb
 C:\Users\Berk\Desktop\CSMS\CSMS.Web\bin\EntityFramework.xml
 C:\Users\Berk\Desktop\CSMS\CSMS.Web\bin\EntityFramework.SqlServer.xml
@@ -558,8 +551,6 @@ C:\Users\Berk\Desktop\CSMS\CSMS.Web\bin\System.Web.Webpages.Razor.xml
 C:\Users\Berk\Desktop\CSMS\CSMS.Web\bin\System.Web.Helpers.xml
 C:\Users\Berk\Desktop\CSMS\CSMS.Web\bin\System.Web.Mvc.xml
 C:\Users\Berk\Desktop\CSMS\CSMS.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\Berk\Desktop\CSMS\CSMS.Web\bin\CSMS.DataAccessLayer.pdb
-C:\Users\Berk\Desktop\CSMS\CSMS.Web\bin\CSMS.DataAccessLayer.dll.config
 C:\Users\Berk\Desktop\CSMS\CSMS.Web\obj\Debug\CSMS.Web.csproj.AssemblyReference.cache
 C:\Users\Berk\Desktop\CSMS\CSMS.Web\obj\Debug\CSMS.Web.csproj.CoreCompileInputs.cache
 C:\Users\Berk\Desktop\CSMS\CSMS.Web\obj\Debug\CSMS.Web.csproj.CopyComplete
@@ -796,3 +787,5 @@ C:\Users\Olcay\Documents\_projects\CSMS\CSMS.Web\bin\Microsoft.CodeDom.Providers
 C:\Users\Olcay\Documents\_projects\CSMS\CSMS.Web\obj\Debug\CSMS.Web.csproj.CopyComplete
 C:\Users\ASUS\Desktop\CSMS\CSMS.Web\obj\Debug\CSMS.Web.Migrations.DbCreated.resources
 C:\Users\ASUS\Desktop\CSMS\CSMS.Web\obj\Debug\CSMS.Web.csproj.GenerateResource.cache
+C:\Users\Berk\Desktop\CSMS\CSMS.Web\obj\Debug\CSMS.Web.Migrations.DbCreated.resources
+C:\Users\Berk\Desktop\CSMS\CSMS.Web\obj\Debug\CSMS.Web.csproj.GenerateResource.cache

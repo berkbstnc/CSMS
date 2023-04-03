@@ -4,32 +4,45 @@
     Layout = "~/Views/Shared/_LayoutCustomer.cshtml";
 }
 
+<style>
+	body {
+		
+	}
+</style>
 
 <div class="container">
-    <div class="row">
+    <div class="row ">
         <div class="col-sm">
-            <h4>
-                <b><u>Customer Information</u></b>
-                <br />
-                <br />
-                <b>Name:</b> @Model.Name
-                <br />
-                <b>Surname:</b> @Model.Surname
-                <br />
-                <b>Email:</b> @Model.Email
-                <br />
-                <b>Adress:</b> @Model.Address
-                <br />
-            </h4>
+            <div class="card text-white bg-dark mb-3">
+                <div class="card-body">
+					<h4>
+						<b><u>Customer Information</u></b>
+						<br />
+						<br />
+						<b>Name:</b> @Model.Name
+						<br />
+						<b>Surname:</b> @Model.Surname
+						<br />
+						<b>Email:</b> @Model.Email
+						<br />
+						<b>Adress:</b> @Model.Address
+						<br />
+					</h4>
+                </div>
+				
+            </div>
+            
         </div>
-        <div class="col-sm">
-            <h4>
-                <b><u>Car Information</u></b>
-                <br />
-                <br />
-                <b>Plate:</b> @Model.Plate
-                <br />
-            </h4>
-        </div>
-    </div>
-</div>
+		<div class="col-sm">
+			<div class="card text-white bg-dark mb-3" style="max-height: 50rem;">
+				<div class="card-body">
+					<h4>
+						<b><u>Car Information</u></b>
+						<br />
+						<br />
+						<b>Plate:</b> @Model.Plate
+						<br />
+					</h4>
+				</div>
+			</div>
+		</div>
