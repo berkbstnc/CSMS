@@ -36,7 +36,8 @@ namespace CSMS.Web.Controllers
         }
         public ActionResult Index()
         {
-            return View(car.Get().OrderByDescending(x => x.CarId).Take(20).ToList());
+            var currentUserId = User.Identity.GetUserId();
+            return View(car.Get(x => x.ApplicationUserId == currentUserId).OrderByDescending(x => x.CarId).Take(20).ToList());
         }
 
         public ActionResult Create()

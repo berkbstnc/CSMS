@@ -40,7 +40,14 @@
     <div class="form-group">
         @Html.LabelFor(model => model.Type, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.Type, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.DropDownListFor(model => model.Type, new List<SelectListItem>
+        {
+                       new SelectListItem { Value = "Gasoline" , Text = "Gasoline" },
+                       new SelectListItem { Value = "Gasoline/LPG" , Text = "Gasoline/LPG" },
+                       new SelectListItem { Value = "Diesel" , Text = "Diesel" },
+                       new SelectListItem { Value = "Hybrid" , Text = "Hybrid" },
+                       new SelectListItem { Value = "Electric" , Text = "Electric" }
+            }, new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.Type, "", new { @class = "text-danger" })
         </div>
     </div>
