@@ -265,15 +265,14 @@
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\PanelController.cs" />
     <Compile Include="Controllers\RolesAdminController.cs" />
-    <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\UsersAdminController.cs" />
     <Compile Include="DataContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202304021227116_DbCreated.cs" />
-    <Compile Include="Migrations\202304021227116_DbCreated.designer.cs">
-      <DependentUpon>202304021227116_DbCreated.cs</DependentUpon>
+    <Compile Include="Migrations\202304061435527_DatabaseTablesChanged.cs" />
+    <Compile Include="Migrations\202304061435527_DatabaseTablesChanged.designer.cs">
+      <DependentUpon>202304061435527_DatabaseTablesChanged.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -281,7 +280,6 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Service\Car.cs" />
-    <Compile Include="Models\Service\Customer.cs" />
     <Compile Include="Models\Service\FaultRecord.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -314,8 +312,8 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202304021227116_DbCreated.resx">
-      <DependentUpon>202304021227116_DbCreated.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202304061435527_DatabaseTablesChanged.resx">
+      <DependentUpon>202304061435527_DatabaseTablesChanged.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -13,14 +13,8 @@ using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace CSMS.Web
 {
-    public class DataContext : DbContext
+    public class DataContext : ApplicationDbContext
     {
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
-        }
-        public DbSet<Customer> Customers { get; set; }
-        public DbSet<Car> Cars { get; set; }
-        public DbSet<FaultRecord> FaultRecords { get; set; }
+        
     }
 }

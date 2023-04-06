@@ -5,6 +5,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using CSMS.Models.Service;
 using CSMS.Web.Models.Service;
+using System.Collections.Generic;
 
 namespace CSMS.Models
 {
@@ -13,8 +14,9 @@ namespace CSMS.Models
     {
         public string Name { get; set; }
         public string Surname { get; set; }
-        public string Plate { get; set; }
         public string Address { get; set; }
+        public List<FaultRecord> FaultRecords { get; set; }
+        public virtual ICollection<Car> Cars { get; set; }
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
@@ -43,9 +45,19 @@ namespace CSMS.Models
             return new ApplicationDbContext();
         }
 
-        //public DbSet<Car> Cars { get; set; }
-        //public DbSet<Customer> Customers { get; set; }
-        //public DbSet<FaultRecord> FaultRecords { get; set; }
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Car>()
+             .HasRequired(n => n.ApplicationUser)
+             .WithMany(a => a.Cars)
+             .HasForeignKey(n => n.ApplicationUserId)
+             .WillCascadeOnDelete(false);
+        }
+        public DbSet<Car> Cars { get; set; }
+        public DbSet<FaultRecord> FaultRecords { get; set; }
+
 
     }
 }

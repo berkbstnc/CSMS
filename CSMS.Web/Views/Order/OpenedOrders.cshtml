@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<CSMS.Web.Models.Service.FaultRecord>
 @{
-    ViewBag.Title = "Opened Fault Records";
+    ViewBag.Title = "Active Fault Records";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
@@ -10,7 +10,7 @@
         <tr>
 
             <td><b>Record Number</b></td>
-            <td><b>Customer</b></td>
+            <td><b>Plate Number</b></td>
             <td><b>Car Km</b></td>
             <td><b>Arrival Date</b></td>
             <td><b>Record</b></td>
@@ -21,7 +21,7 @@
             {
                 <tr>
                     <td>@item.RecordId</td>
-                    <td>@item.Customer.Name</td>
+                    <td>@item.CustomerCar.Plate</td>
                     <td>@item.CarKm</td>
                     <td>@item.ArrivalDate</td>
                     <td>@item.Record</td>
@@ -29,5 +29,10 @@
             }
 </table>
 
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-dark" })
+    </div>
+</div>
 
 

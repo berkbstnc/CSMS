@@ -9,7 +9,7 @@
 {
     <div class="row">
         <div class="col">
-            Search Car
+            Search (Customer Name / Plate)
             <input type="text" class=" form-control" name="search" />
         </div>
     </div>
@@ -27,6 +27,7 @@
 <table class="table table-sm table-responsive">
     <thead>
         <tr>
+            <th>Customer Name</th>
             <th>Plate</th>
             <th>Brand</th>
             <th>Model</th>
@@ -37,13 +38,14 @@
     @foreach (var item in Model)
     {
         <tr>
+            <td>@item.ApplicationUser.Name @item.ApplicationUser.Surname</td>
             <td>@item.Plate</td>
-            <td>@item.Name</td>
+            <td>@item.Brand</td>
             <td>@item.Model</td>
             <td>@item.Year</td>
             <td>@item.Type</td>
             <td>
-                @Html.ActionLink("Create Fault Record", "OrderCreate", new { customerid = item.CarId }, new { @class = "btn btn-sm btn-success" })
+                @Html.ActionLink("Create Fault Record", "OrderCreate", new { carid = item.CarId }, new { @class = "btn btn-sm btn-success" })
             </td>
         </tr>
     }

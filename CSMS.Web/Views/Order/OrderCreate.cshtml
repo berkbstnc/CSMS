@@ -6,11 +6,11 @@
 
 @using (Html.BeginForm("Create", "Order"))
 {
-    <input type="hidden" name="CustomerId" value="@ViewBag.CustomerId" />
+    <input type="hidden" name="CarId" value="@ViewBag.CarId" />
     <div class="row">
         <div class="col-md-4">
             Car Km
-            <input type="text" name="CarKm" class="form-control" />
+            <input type="number" name="CarKm" class="form-control" />
         </div>
         <div class="col-md-4">
             Arrival Date

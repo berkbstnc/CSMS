@@ -12,11 +12,11 @@ namespace CSMS.Web.Models.Service
     {
         [Key]
         public int RecordId { get; set; }
-        public int CustomerId { get; set; }
+        public int CarId { get; set; }
         public int CarKm { get; set; }
         public DateTime ArrivalDate { get; set; }
         public string Record { get; set; }
         public bool Status { get; set; }
-        public virtual Customer Customer { get; set; }
+        public virtual Car CustomerCar { get; set; }
     }
 }

@@ -155,7 +155,7 @@ namespace CSMS.Controllers
                     Name = model.Name,
                     Address = model.Address,
                     Surname = model.Surname,
-                    Plate = model.Plate,
+                    //Plate = model.Plate,
                     PhoneNumber = model.PhoneNumber,
                 };
                 var result = await UserManager.CreateAsync(user, model.Password);

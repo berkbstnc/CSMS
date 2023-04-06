@@ -97,11 +97,6 @@ namespace CSMS.Models
         public string PhoneNumber { get; set; }
 
         [Required]
-        [StringLength(20)]
-        [Display(Name = "Plate")]
-        public string Plate { get; set; }
-
-        [Required]
         [StringLength(200)]
         [DataType(DataType.MultilineText)]
         [Display(Name = "Address")]

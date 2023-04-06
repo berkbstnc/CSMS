@@ -2,6 +2,10 @@
 using System.Web.Mvc;
 using CSMS.Web.Abstract;
 using CSMS.Models.Service;
+using CSMS.Models;
+using System.Web;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.AspNet.Identity;
 
 namespace CSMS.Web.Controllers
 {
@@ -9,6 +13,27 @@ namespace CSMS.Web.Controllers
     public class CarController : Controller
     {
         private readonly Repository<Car> car = new Repository<Car>();
+        public CarController()
+        {
+        }
+
+        public CarController(ApplicationUserManager userManager)
+        {
+            UserManager = userManager;
+        }
+
+        private ApplicationUserManager _userManager;
+        public ApplicationUserManager UserManager
+        {
+            get
+            {
+                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            }
+            private set
+            {
+                _userManager = value;
+            }
+        }
         public ActionResult Index()
         {
             return View(car.Get().OrderByDescending(x => x.CarId).Take(20).ToList());
@@ -22,6 +47,8 @@ namespace CSMS.Web.Controllers
         [HttpPost]
         public ActionResult Create(Car p)
         {
+            var currentUserId = User.Identity.GetUserId();
+            p.ApplicationUserId = currentUserId;
             car.Insert(p);
             return RedirectToAction("Index");
         }
@@ -34,7 +61,7 @@ namespace CSMS.Web.Controllers
         public ActionResult Edit(Car p)
         {
             var edit = car.GetById(p.CarId);
-            edit.Name = p.Name;
+            edit.Brand = p.Brand;
             edit.Model = p.Model;
             edit.Year = p.Year;
             edit.Type = p.Type;

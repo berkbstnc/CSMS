@@ -117,12 +117,16 @@ namespace CSMS.Models
             const string name = "admin@example.com";
             const string password = "Admin@123456";
             const string roleName = "Admin";
+            const string roleName2 = "Customer";
 
             //Create Role Admin if it does not exist
             var role = roleManager.FindByName(roleName);
+            var role2 = roleManager.FindByName(roleName);
             if (role == null) {
                 role = new IdentityRole(roleName);
                 var roleresult = roleManager.Create(role);
+                role2 = new IdentityRole(roleName2);
+                var roleresult2 = roleManager.Create(role2);
             }
 
             var user = userManager.FindByName(name);
