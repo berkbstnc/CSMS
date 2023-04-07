@@ -674,9 +674,6 @@ C:\Users\Se\Desktop\CSMS\CSMS.Web\obj\Debug\CSMS.Web.csproj.CopyComplete
 C:\Users\Se\Desktop\CSMS\CSMS.Web\obj\Debug\CSMS.Web.dll
 C:\Users\Se\Desktop\CSMS\CSMS.Web\obj\Debug\CSMS.Web.pdb
 C:\Users\Olcay\Documents\_projects\CSMS\CSMS.Web\obj\Debug\CSMS.Web.csproj.AssemblyReference.cache
-C:\Users\Olcay\Documents\_projects\CSMS\CSMS.Web\obj\Debug\CSMS.Web.Migrations.InitialCreate.resources
-C:\Users\Olcay\Documents\_projects\CSMS\CSMS.Web\obj\Debug\CSMS.Web.Migrations.CreateCustomersTable.resources
-C:\Users\Olcay\Documents\_projects\CSMS\CSMS.Web\obj\Debug\CSMS.Web.Migrations.CreateCarsTable.resources
 C:\Users\Olcay\Documents\_projects\CSMS\CSMS.Web\obj\Debug\CSMS.Web.csproj.GenerateResource.cache
 C:\Users\Olcay\Documents\_projects\CSMS\CSMS.Web\obj\Debug\CSMS.Web.csproj.CoreCompileInputs.cache
 C:\Users\Olcay\Documents\_projects\CSMS\CSMS.Web\obj\Debug\CSMS.Web.dll
@@ -1009,3 +1006,4 @@ C:\Users\ASUS\Desktop\CSMS-main\CSMS.Web\obj\Debug\CSMS.Web.pdb
 C:\Users\ASUS\Desktop\CSMS-main\CSMS.Web\obj\Debug\CSMS.Web.Migrations.DatabaseTablesChanged.resources
 C:\Users\ASUS\Desktop\CSMS-main\CSMS.Web\obj\Debug\CSMS.Web.csproj.GenerateResource.cache
 C:\Users\ASUS\Desktop\CSMS\CSMS.Web\obj\Debug\CSMS.Web.Migrations.DatabaseTablesChanged.resources
+C:\Users\Olcay\Documents\_projects\CSMS\CSMS.Web\obj\Debug\CSMS.Web.Migrations.DatabaseTablesChanged.resources

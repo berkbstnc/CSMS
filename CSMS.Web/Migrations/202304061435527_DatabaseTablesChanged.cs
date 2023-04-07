@@ -8,22 +8,6 @@
         public override void Up()
         {
             CreateTable(
-                "dbo.Cars",
-                c => new
-                    {
-                        CarId = c.Int(nullable: false, identity: true),
-                        ApplicationUserId = c.String(nullable: false, maxLength: 128),
-                        Brand = c.String(),
-                        Model = c.String(),
-                        Year = c.Int(nullable: false),
-                        Type = c.String(),
-                        Plate = c.String(),
-                    })
-                .PrimaryKey(t => t.CarId)
-                .ForeignKey("dbo.AspNetUsers", t => t.ApplicationUserId)
-                .Index(t => t.ApplicationUserId);
-            
-            CreateTable(
                 "dbo.AspNetUsers",
                 c => new
                     {
@@ -45,7 +29,23 @@
                     })
                 .PrimaryKey(t => t.Id)
                 .Index(t => t.UserName, unique: true, name: "UserNameIndex");
-            
+
+            CreateTable(
+             "dbo.Cars",
+             c => new
+             {
+                 CarId = c.Int(nullable: false, identity: true),
+                 ApplicationUserId = c.String(nullable: false, maxLength: 128),
+                 Brand = c.String(),
+                 Model = c.String(),
+                 Year = c.Int(nullable: false),
+                 Type = c.String(),
+                 Plate = c.String(),
+             })
+             .PrimaryKey(t => t.CarId)
+             .ForeignKey("dbo.AspNetUsers", t => t.ApplicationUserId)
+             .Index(t => t.ApplicationUserId);
+
             CreateTable(
                 "dbo.AspNetUserClaims",
                 c => new
