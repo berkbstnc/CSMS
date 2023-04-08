@@ -175,6 +175,7 @@
     <Content Include="img\slider1.jpeg" />
     <Content Include="img\slider2.jpeg" />
     <Content Include="img\slider3.jpeg" />
+    <Content Include="img\slider_2.png" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />

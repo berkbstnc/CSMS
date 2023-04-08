@@ -783,7 +783,6 @@ C:\Users\Olcay\Documents\_projects\CSMS\CSMS.Web\bin\System.Web.Mvc.xml
 C:\Users\Olcay\Documents\_projects\CSMS\CSMS.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\Olcay\Documents\_projects\CSMS\CSMS.Web\obj\Debug\CSMS.Web.csproj.CopyComplete
 C:\Users\ASUS\Desktop\CSMS\CSMS.Web\obj\Debug\CSMS.Web.csproj.GenerateResource.cache
-C:\Users\Berk\Desktop\CSMS\CSMS.Web\obj\Debug\CSMS.Web.Migrations.DbCreated.resources
 C:\Users\Berk\Desktop\CSMS\CSMS.Web\obj\Debug\CSMS.Web.csproj.GenerateResource.cache
 C:\Users\ereni\Desktop\CSMS\CSMS.Web\bin\CSMS.Web.dll.config
 C:\Users\ereni\Desktop\CSMS\CSMS.Web\bin\CSMS.Web.dll
@@ -1007,3 +1006,4 @@ C:\Users\ASUS\Desktop\CSMS-main\CSMS.Web\obj\Debug\CSMS.Web.Migrations.DatabaseT
 C:\Users\ASUS\Desktop\CSMS-main\CSMS.Web\obj\Debug\CSMS.Web.csproj.GenerateResource.cache
 C:\Users\ASUS\Desktop\CSMS\CSMS.Web\obj\Debug\CSMS.Web.Migrations.DatabaseTablesChanged.resources
 C:\Users\Olcay\Documents\_projects\CSMS\CSMS.Web\obj\Debug\CSMS.Web.Migrations.DatabaseTablesChanged.resources
+C:\Users\Berk\Desktop\CSMS\CSMS.Web\obj\Debug\CSMS.Web.Migrations.DatabaseTablesChanged.resources

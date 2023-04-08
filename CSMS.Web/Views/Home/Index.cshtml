@@ -33,24 +33,33 @@
 		overflow-x: hidden;
 		overflow-y: scroll;
 	}
+
+	.c-item {
+		height: 480px;		
+	}
+	.c-img {
+		height: 100%;
+		object-fit: cover;
+		
+	}
 </style>
 
 	@* carousel slide*@
-	<div id="carouselExampleIndicators" class="carousel slide">
+	<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
 		@*<div class="carousel-indicators">
 				<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
 				<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
 				<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
 			</div>*@
 		<div class="carousel-inner">
-			<div class="carousel-item active">
-				<img src="~/img/slider1.jpeg" class="d-block w-100" alt="CSMS mechanic service ">
+			<div class="carousel-item active c-item">
+				<img src="~/img/slider1.jpeg" class="d-block w-100 c-img" alt="CSMS mechanic service ">
 			</div>
-			<div class="carousel-item">
-				<img src="~/img/slider2.jpeg" class="d-block w-100" alt="...">
+			<div class="carousel-item c-item">
+				<img src="~/img/slider2.jpeg" class="d-block w-100 c-img" alt="...">
 			</div>
-			<div class="carousel-item">
-				<img src="~/img/slider3.jpeg" class="d-block w-100" alt="...">
+			<div class="carousel-item c-item">
+				<img src="~/img/slider3.jpeg" class="d-block w-100 c-img" alt="...">
 			</div>
 		</div>
 		<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
