@@ -1,11 +1,16 @@
 ﻿using CSMS.Models;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.BuilderProperties;
 using Microsoft.Owin.Security;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
+using System.Xml.Linq;
 
 namespace CSMS.Controllers
 {
@@ -42,6 +47,31 @@ namespace CSMS.Controllers
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
+            if (!UserManager.Users.Any(user => user.UserName == "Admin"))
+            {
+                ApplicationUser adminApplicationUser = new ApplicationUser()
+                {
+                    Name = "Admin",
+                    Surname = "Admin",
+                    Email = "admin@example.com",
+                    Address = "",
+                    PhoneNumber = "",
+                    UserName = "admin@example.com",
+                };
+
+                UserManager.Create(adminApplicationUser, "Admin@123456");
+                //var passwordHasher = new PasswordHasher();
+                //var hashed = passwordHasher.HashPassword("Admin@123456");
+                //adminApplicationUser.PasswordHash = userManager.PasswordHasher.HashPassword("Admin@123456"); ;
+                //context.Users.Add(adminApplicationUser);
+                var roleManager = HttpContext.GetOwinContext().Get<ApplicationRoleManager>();
+
+                adminApplicationUser.Roles.Add(new IdentityUserRole()
+                {
+                    RoleId = (from role in roleManager.Roles where role.Name == "Admin" select role.Id).SingleOrDefault(),
+                    UserId = adminApplicationUser.Id
+                });
+            }
             return View();
         }
 
@@ -155,7 +185,6 @@ namespace CSMS.Controllers
                     Name = model.Name,
                     Address = model.Address,
                     Surname = model.Surname,
-                    //Plate = model.Plate,
                     PhoneNumber = model.PhoneNumber,
                 };
                 var result = await UserManager.CreateAsync(user, model.Password);
