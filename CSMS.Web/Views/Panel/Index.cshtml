@@ -1,6 +1,21 @@
-﻿
+﻿@model IEnumerable<CSMS.Models.ApplicationUser>
+
 @{
     ViewBag.Title = "Admin Panel";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
+
+<div class="col-sm col-6">
+    <div class="card text-white text-center bg-dark mb-3" style="max-height: 50rem;">
+        <div class="card-body">
+            <h4>
+                <b><u>Welcome!</u></b>
+                <br />
+                <br />
+                There are <b>@Model.Count() User(s)</b> in The System
+                <br />
+            </h4>
+        </div>
+    </div>
+</div>
