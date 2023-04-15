@@ -166,7 +166,13 @@ namespace CSMS.Controllers
                 if (result.Succeeded)
                 {
                     var currentUser = UserManager.FindByName(user.UserName);
-                    var roleresult = UserManager.AddToRole(currentUser.Id, "Customer");
+                    if (new string[] { "Customer", "Mechanic" }.Contains(HttpContext.Request.Params["role"]))
+                    {
+                        var roleresult = UserManager.AddToRole(currentUser.Id, HttpContext.Request.Params["role"]);
+                    } else
+                    {
+                        UserManager.AddToRole(currentUser.Id, "Customer");
+                    }
                     return View("DisplayEmail");
                 }
                 AddErrors(result);

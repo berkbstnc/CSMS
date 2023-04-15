@@ -1,0 +1,61 @@
+﻿@model CSMS.Models.Service.Appointment
+
+@{
+    ViewBag.Title = "Create Appointment";
+    Layout = "~/Views/Shared/_LayoutCustomer.cshtml";
+}
+
+
+
+@if (!string.IsNullOrEmpty(ViewBag.CustomError))
+{
+    <div class="alert alert-danger">@ViewBag.CustomError</div>
+    <button class="btn btn-primary mt-2" onclick="window.history.back();">Back</button>
+}
+else
+{
+    <h2>@ViewBag.MechanicUser.Name @ViewBag.MechanicUser.Surname</h2>
+
+    using (Html.BeginForm("Create", "Appointment", FormMethod.Get))
+    {
+        <label class="" for="date">Appointment Date</label>
+        <input type="date" name="date" value="@ViewBag.Date.ToString("yyyy-MM-dd")" class="form-control" />
+        <button type="submit" class="btn btn-primary mt-2">Search</button>
+    }
+
+    using (Html.BeginForm("Create", "Appointment", FormMethod.Post, new { @class = "mt-5" }))
+    {
+        <input type="hidden" name="date" value="@ViewBag.Date.ToString("yyyy-MM-dd")" />
+        <input type="hidden" name="mechanicId" value="@ViewBag.MechanicUser.Id" />
+        <label class="" for="hour">Choose an Hour</label>
+        <select name="hour" class="form-select">
+            @for (int i = 0; i < 24; i++)
+            {
+                <option disabled="@(ViewBag.BookedHours[i] || DateTime.Parse(string.Format("{0} {1:00}:{2:00}", ViewBag.Date.ToString("yyyy-MM-dd"), i, 0)) < DateTime.Now)" value="@i">@string.Format("{0:00}:{1:00}", i, 0) @(ViewBag.BookedHours[i] ? "Reserved" : "")</option>
+            }
+        </select>
+
+        <label class="mt-4" for="carId">Cars</label>
+        if (ViewBag.Cars != null)
+        {
+            <select name="carId" class="form-select">
+                @foreach (var car in ViewBag.Cars)
+                {
+                    <option value="@car.CarId">@car.Plate</option>
+                }
+            </select>
+        }
+        else
+        {
+            <div class="alert alert-warning">You have no car.</div>
+        }
+
+        <label class="mt-4" for="carId">Description</label>
+        <textarea name="description" style="resize: vertical;" rows="3" class="form-control mt-2"></textarea>
+
+        <button type="submit" class="btn btn-primary mt-2" disabled="@(ViewBag.Cars == null)">Create</button>
+    }
+}
+
+
+

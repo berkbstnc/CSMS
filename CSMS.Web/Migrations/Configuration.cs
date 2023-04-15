@@ -16,12 +16,13 @@
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
-            AutomaticMigrationDataLossAllowed = false;
+            AutomaticMigrationDataLossAllowed = true;
+
         }
 
         protected override void Seed(DataContext context)
         {
-            foreach (string role in new string[] { "Admin", "Customer" }) 
+            foreach (string role in new string[] { "Admin", "Customer", "Mechanic" }) 
             {
                 if (context.Roles.Any(role_ => role_.Name == role)) continue;
                 context.Roles.Add(new IdentityRole 
@@ -31,7 +32,7 @@
             }
 
             context.SaveChanges();
-            if (!context.Users.Any(user => user.UserName == "Admin"))
+            if (!context.Users.Any(user => user.UserName == "admin@example.com"))
             {
                 using (ApplicationUserManager userManager = new ApplicationUserManager(new UserStore<ApplicationUser>(context)))
                 {
@@ -55,9 +56,8 @@
                         RoleId = (from role in context.Roles where role.Name == "Admin" select role.Id).SingleOrDefault(),
                         UserId = user.Id
                     });
+                    context.SaveChanges();
                 }
-
-                context.SaveChanges();
             }
         }
     }

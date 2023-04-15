@@ -1,0 +1,39 @@
+﻿@model IEnumerable<CSMS.Models.ApplicationUser>
+
+@{
+    ViewBag.Title = "Mechanics";
+    Layout = "~/Views/Shared/_LayoutCustomer.cshtml";
+}
+
+@if (0 < ViewBag.MechanicUsers.Length)
+{
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in ViewBag.MechanicUsers)
+            {
+                <tr>
+                    <td class="h4"> @user.Name @user.Surname</td>
+                    <td>
+                        @Html.ActionLink(
+                            "Make an Appointment",
+                            "Create",
+                            "Appointment",
+                            new { id = user.Id, date = DateTime.Now.ToString("yyyy-MM-dd") },
+                            new { @class = "btn btn-primary btn-sm" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+
+}
+

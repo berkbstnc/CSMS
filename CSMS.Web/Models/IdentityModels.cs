@@ -17,6 +17,7 @@ namespace CSMS.Models
         public string Address { get; set; }
         public List<FaultRecord> FaultRecords { get; set; }
         public virtual ICollection<Car> Cars { get; set; }
+        public virtual ICollection<Appointment> Appointments { get; set; }
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
@@ -57,7 +58,7 @@ namespace CSMS.Models
         }
         public DbSet<Car> Cars { get; set; }
         public DbSet<FaultRecord> FaultRecords { get; set; }
-
+        public DbSet<Appointment> Appointments { get; set; }
 
     }
 }
