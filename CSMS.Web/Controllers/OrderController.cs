@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using CSMS.Models;
@@ -14,10 +15,9 @@ namespace CSMS.Web.Controllers
     {
         private readonly Repository<Car> Nuser = new Repository<Car>();
         private readonly Repository<FaultRecord> record = new Repository<FaultRecord>();
+        private readonly Repository<Period> Nperiod = new Repository<Period>();
 
-        public OrderController()
-        {
-        }
+        public OrderController(){}
 
         public OrderController(ApplicationUserManager userManager)
         {
@@ -55,16 +55,50 @@ namespace CSMS.Web.Controllers
 
         public ActionResult Create(FaultRecord faultRecord)
         {
-            //var currentUserId = User.Identity.GetUserId();
-            //faultRecord.CustomerCar.ApplicationUserId = currentUserId;
             record.Insert(faultRecord);
             return RedirectToAction("OpenedOrders");
         }
 
         public ActionResult OpenedOrders()
         {
-            return View(record.Get(x => x.Status == false).ToList());
+            return View(record.Get(x => x.Status == false).OrderByDescending(x => x.RecordId).ToList());
         }
+        public ActionResult ClosedOrders()
+        {
+            return View(record.Get(x => x.Status == true).OrderByDescending(x => x.RecordId).ToList());
+        }
+
+        public ActionResult MakeOperation(int orderid)
+        {
+            var info = record.Get(x => x.RecordId == orderid, includeProperties: "CustomerCar").FirstOrDefault();
+            ViewBag.Title = "Car Plate: " + info.CustomerCar.Plate;
+            ViewBag.FaultId = orderid;
+            return View(Nperiod.Get(x => x.FaultId == orderid).OrderByDescending(x => x.PeriodId).ToList());
+        }
+
+        public ActionResult SaveOperation(Period period)
+        {
+            Nperiod.Insert(period);
+            return RedirectToAction("MakeOperation", new {orderid = period.FaultId });
+        }
+
+        public ActionResult DeleteOperation(int id)
+        {
+            var delete = Nperiod.GetById(id);
+            Nperiod.Delete(delete);
+            return RedirectToAction("MakeOperation", new { orderid = delete.FaultId });
+        }
+
+        public ActionResult SaveClose(int FaultId, decimal TotalCost)
+        {
+            var FID = record.GetById(FaultId);
+            FID.TotalCost = TotalCost;
+            FID.Status = true;
+            FID.FinishDate = DateTime.Now;
+            record.Update(FID);
+            return RedirectToAction("ClosedOrders");
+        }
+
     }
 
 }

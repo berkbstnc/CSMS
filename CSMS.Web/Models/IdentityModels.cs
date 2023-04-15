@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using CSMS.Models.Service;
 using CSMS.Web.Models.Service;
 using System.Collections.Generic;
+using System;
 
 namespace CSMS.Models
 {
@@ -49,7 +50,7 @@ namespace CSMS.Models
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
+            modelBuilder.Properties<DateTime>().Configure(c => c.HasColumnType("datetime2"));
             modelBuilder.Entity<Car>()
              .HasRequired(n => n.ApplicationUser)
              .WithMany(a => a.Cars)
@@ -59,6 +60,7 @@ namespace CSMS.Models
         public DbSet<Car> Cars { get; set; }
         public DbSet<FaultRecord> FaultRecords { get; set; }
         public DbSet<Appointment> Appointments { get; set; }
+        public DbSet<Period> Periods { get; set; }
 
     }
 }

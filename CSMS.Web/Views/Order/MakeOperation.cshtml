@@ -1,0 +1,143 @@
+﻿@model IEnumerable<CSMS.Web.Models.Service.Period>
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@using (Html.BeginForm("SaveOperation", "Order"))
+{
+    <input type="hidden" name="FaultId" value="@ViewBag.FaultId" />
+
+    <div class="row">
+
+        <div class="col-md-3">
+            Description
+            <textarea name="Description" required class="form-control form-control-sm"></textarea>
+        </div>
+
+        <div class="col-md-2">
+            Price
+            <div class="input-group input-group-sm">
+                <span class="input-group-text">&#8378;</span>
+                <input type="number" name="Price" id="Price" required onchange="Calculate()" step="any" class="form-control form-control-sm text-center" value="0" />
+            </div>
+
+        </div>
+
+        <div class="col-md-1">
+            Quantity
+            <input type="number" name="Quantity" id="Quantity" required onchange="Calculate()" class="form-control form-control-sm text-center" value="1" />
+        </div>
+
+        <div class="col-md-2">
+            Total Amount
+            <div class="input-group input-group-sm">
+                <span class="input-group-text">&#8378;</span>
+                <input type="number" name="TotalAmount" id="TotalAmount" class="form-control form-control-sm text-center" readonly value="0" />
+            </div>
+        </div>
+
+        <div class="col-md-1">
+            <br />
+            <input type="submit" value="Add" class="btn btn-sm btn-success" />
+        </div>
+        <div>
+            <br />
+            @Html.ActionLink("Back to List", "OpenedOrders", null, new { @class = "btn btn-sm btn-dark" })
+        </div>
+
+
+    </div>
+}
+<hr />
+<table class="table table-responsive table-primary">
+    <thead>
+        <tr>
+            <th>Operation</th>
+            <th>Quantity</th>
+            <th>Total Amount</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Description</td>
+            <td>@item.Quantity</td>
+            <td>@item.TotalAmount.ToString("C")</td>
+            <td>
+                <button type="button" onclick="silmodal(this)" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#SilModal" data-id="@item.PeriodId">
+                    Delete
+                </button>
+            </td>
+        </tr>
+
+    }
+    <tfoot>
+        <tr>
+            <td></td>
+            <td></td>
+            <td><b>GRAND TOTAL</b></td>
+            <td><b>@Model.Sum(x => x.TotalAmount).ToString("C")</b></td>
+        </tr>
+    </tfoot>
+</table>
+
+<div class="modal fade" id="SilModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Delete The Operation</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Do you want to delete?
+            </div>
+            <div class="modal-footer">
+                @using (Html.BeginForm("DeleteOperation", "Order", FormMethod.Post))
+                {
+                    <input type="hidden" id="hiddenId" name="id" />
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@using (Html.BeginForm("SaveClose", "Order"))
+{
+    <input type="hidden" name="FaultId" value="@ViewBag.FaultId" />
+    <input type="hidden" name="TotalCost" id="TotalCost" step="any" class="form-control form-control-sm text-center" value="@Model.Sum(x => x.TotalAmount)" />
+    <input type="submit" class="btn btn-primary mt2 float-end" value="Save and Close The Order" />
+}
+
+
+
+<script>
+
+    function Calculate() {
+        var Fiyat = $('#Price').val();
+        var Adet = $('#Quantity').val();
+        if (Fiyat.length === 0 || Adet.length === 0) {
+            $('#TotalAmount').val(0);
+        }
+        else {
+            var Toplam = Fiyat * Adet;
+            $('#TotalAmount').val(Toplam);
+        }
+    }
+
+</script>
+
+@section Scripts{
+    <script>
+        function silmodal(btn) {
+            var xid = $(btn).data('id');
+            $('#hiddenId').val(xid);
+        }
+    </script>
+}
+

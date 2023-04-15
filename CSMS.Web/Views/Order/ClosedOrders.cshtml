@@ -1,0 +1,42 @@
+﻿@model IEnumerable<CSMS.Web.Models.Service.FaultRecord>
+@{
+    ViewBag.Title = "Closed Fault Records";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<table class="table table-sm table-responsive">
+    <thead>
+
+        <tr>
+
+            <td><b>Record ID</b></td>
+            <td><b>Plate Number</b></td>
+            <td><b>Car Km</b></td>
+            <td><b>Arrival Date</b></td>
+            <td><b>Finish Date</b></td>
+            <td><b>Total Cost</b></td>
+        </tr>
+
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.RecordId</td>
+            <td>@item.CustomerCar.Plate</td>
+            <td>@item.CarKm</td>
+            <td>@item.ArrivalDate.ToShortDateString()</td>
+            <td>@item.FinishDate.ToShortDateString()</td>
+            <td>@item.TotalCost.ToString("C")</td>
+        </tr>
+    }
+</table>
+
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-dark" })
+    </div>
+</div>
+
+
+
+

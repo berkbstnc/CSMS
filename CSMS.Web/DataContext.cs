@@ -15,6 +15,5 @@ namespace CSMS.Web
 {
     public class DataContext : ApplicationDbContext
     {
-        
     }
 }

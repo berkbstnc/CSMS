@@ -17,6 +17,9 @@ namespace CSMS.Web.Models.Service
         public DateTime ArrivalDate { get; set; }
         public string Record { get; set; }
         public bool Status { get; set; }
+        public decimal TotalCost { get; set; }
+        public DateTime FinishDate { get; set; }
         public virtual Car CustomerCar { get; set; }
+        public List <Period> Periods { get; set; }
     }
 }

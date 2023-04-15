@@ -285,6 +285,7 @@
     <Compile Include="Models\Service\Appointment.cs" />
     <Compile Include="Models\Service\Car.cs" />
     <Compile Include="Models\Service\FaultRecord.cs" />
+    <Compile Include="Models\Service\Period.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -305,6 +306,8 @@
     <Content Include="Views\Mechanic\Index.cshtml" />
     <Content Include="Views\Appointment\Create.cshtml" />
     <Content Include="Views\Appointment\Index.cshtml" />
+    <Content Include="Views\Order\MakeOperation.cshtml" />
+    <Content Include="Views\Order\ClosedOrders.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -314,6 +317,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Default\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202304061435527_DatabaseTablesChanged.resx">
