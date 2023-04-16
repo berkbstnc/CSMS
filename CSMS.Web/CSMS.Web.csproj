@@ -299,6 +299,7 @@
     <Content Include="Views\Order\ClosedOrders.cshtml" />
     <Content Include="Views\Order\SeeDetails.cshtml" />
     <Content Include="Views\Car\FaultRecords.cshtml" />
+    <Content Include="Views\Car\FaultReport.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -16,6 +16,7 @@ namespace CSMS.Web.Controllers
     {
         private readonly Repository<Car> car = new Repository<Car>();
         private readonly Repository<FaultRecord> record = new Repository<FaultRecord>();
+        private readonly Repository<Period> Nperiod = new Repository<Period>();
         public CarController()
         {
         }
@@ -85,6 +86,14 @@ namespace CSMS.Web.Controllers
         public ActionResult FaultRecords(int carid)
         {
             return View(record.Get(x => x.CarId == carid).OrderByDescending(x => x.RecordId).ToList());
+        }
+
+        public ActionResult FaultReport(int orderid)
+        {
+            var info = record.Get(x => x.RecordId == orderid, includeProperties: "CustomerCar").FirstOrDefault();
+            ViewBag.Title = "Fault Record ID: " + info.RecordId;
+            ViewBag.FaultId = orderid;
+            return View(Nperiod.Get(x => x.FaultId == orderid).OrderByDescending(x => x.PeriodId).ToList());
         }
     }
 }

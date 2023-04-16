@@ -1,6 +1,5 @@
 ﻿@model IEnumerable<CSMS.Web.Models.Service.FaultRecord>
 @{
-    ViewBag.Title = "Fault Record";
     Layout = "~/Views/Shared/_LayoutCustomer.cshtml";
 }
 
@@ -28,7 +27,7 @@
             <td>@item.Record</td>
             @if (@item.Status == true)
             {
-               <td>@Html.ActionLink("Completed", "SeeDetails", "Order", new { orderid = item.RecordId }, new { @class = "btn btn-sm btn-success" })</td>
+               <td>@Html.ActionLink("See The Report", "FaultReport", "Car", new { orderid = item.RecordId }, new { @class = "btn btn-sm btn-success" })</td>
             }
             else
             {

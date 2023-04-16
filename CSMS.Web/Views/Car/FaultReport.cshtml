@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<CSMS.Web.Models.Service.Period>
 
 @{
-    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    Layout = "~/Views/Shared/_LayoutCustomer.cshtml";
 }
 
 <table class="table table-responsive table-primary">
@@ -36,7 +36,7 @@
 
 <div class="form-group">
     <div class="col-md-offset-2 col-md-10">
-        @Html.ActionLink("Back to List", "ClosedOrders", "Order",null, new { @class = "btn btn-dark" })
+        @Html.ActionLink("Back to List", "Index", "Car", null, new { @class = "btn btn-dark" })
     </div>
 </div>
 
