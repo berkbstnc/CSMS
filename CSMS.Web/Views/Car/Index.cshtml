@@ -6,7 +6,7 @@
 }
 
 <p>
-    @Html.ActionLink("New Car Information", "Create", null, new { @class = "btn btn-sm btn-success" })
+    @Html.ActionLink("Add New Car", "Create", null, new { @class = "btn btn-sm btn-success" })
 </p>
 <table class="table">
     <tr>
@@ -47,6 +47,8 @@
                 @Html.DisplayFor(modelItem => item.Plate)
             </td>
             <td>
+                @Html.ActionLink("Fault Records", "FaultRecords", "Car", new { carid = item.CarId }, new { @class = "btn btn-sm btn-secondary" })
+
                 @Html.ActionLink("Edit", "Edit", new { id = item.CarId }, new { @class = "btn btn-sm btn-primary" })
 
                 <button type="button" onclick="silmodal(this)" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#SilModal" data-id="@item.CarId">

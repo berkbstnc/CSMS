@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<CSMS.Models.ApplicationUser>
 
 @{
-    ViewBag.Title = "Mechanics";
+    ViewBag.Title = "Create Appointment";
     Layout = "~/Views/Shared/_LayoutCustomer.cshtml";
 }
 
@@ -10,7 +10,7 @@
     <table class="table table-striped table-bordered">
         <thead>
             <tr>
-                <th>Name</th>
+                <th>Mechanic Name</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -21,7 +21,7 @@
                     <td class="h4"> @user.Name @user.Surname</td>
                     <td>
                         @Html.ActionLink(
-                            "Make an Appointment",
+                            "Create an Appointment",
                             "Create",
                             "Appointment",
                             new { id = user.Id, date = DateTime.Now.ToString("yyyy-MM-dd") },

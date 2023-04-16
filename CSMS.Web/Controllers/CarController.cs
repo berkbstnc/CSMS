@@ -6,6 +6,8 @@ using CSMS.Models;
 using System.Web;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.AspNet.Identity;
+using CSMS.Web.Models.Service;
+using System.Web.Caching;
 
 namespace CSMS.Web.Controllers
 {
@@ -13,6 +15,7 @@ namespace CSMS.Web.Controllers
     public class CarController : Controller
     {
         private readonly Repository<Car> car = new Repository<Car>();
+        private readonly Repository<FaultRecord> record = new Repository<FaultRecord>();
         public CarController()
         {
         }
@@ -79,5 +82,9 @@ namespace CSMS.Web.Controllers
 
         }
 
+        public ActionResult FaultRecords(int carid)
+        {
+            return View(record.Get(x => x.CarId == carid).OrderByDescending(x => x.RecordId).ToList());
+        }
     }
 }

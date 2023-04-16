@@ -99,6 +99,14 @@ namespace CSMS.Web.Controllers
             return RedirectToAction("ClosedOrders");
         }
 
+        public ActionResult SeeDetails(int orderid)
+        {
+            var info = record.Get(x => x.RecordId == orderid, includeProperties: "CustomerCar").FirstOrDefault();
+            ViewBag.Title = "Fault Record ID: " + info.RecordId;
+            ViewBag.FaultId = orderid;
+            return View(Nperiod.Get(x => x.FaultId == orderid).OrderByDescending(x => x.PeriodId).ToList());
+        }
+
     }
 
 }

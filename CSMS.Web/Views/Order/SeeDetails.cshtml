@@ -1,0 +1,43 @@
+﻿@model IEnumerable<CSMS.Web.Models.Service.Period>
+
+@{
+    Layout = "~/Views/Shared/_LayoutCustomer.cshtml";
+}
+
+<table class="table table-responsive table-primary">
+    <thead>
+        <tr>
+            <th>Operation</th>
+            <th>Quantity</th>
+            <th>Total Amount</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Description</td>
+            <td>@item.Quantity</td>
+            <td>@item.TotalAmount.ToString("C")</td>
+            <th></th>
+        </tr>
+
+    }
+    <tfoot>
+        <tr>
+            <td></td>
+            <td><b>GRAND TOTAL</b></td>
+            <td><b>@Model.Sum(x => x.TotalAmount).ToString("C")</b></td>
+            <td></td>
+        </tr>
+    </tfoot>
+</table>
+
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        @Html.ActionLink("Back to List", "ClosedOrders", "Order",null, new { @class = "btn btn-dark" })
+    </div>
+</div>
+
+

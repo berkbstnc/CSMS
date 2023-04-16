@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<CSMS.Web.Models.Service.FaultRecord>
 @{
-    ViewBag.Title = "Closed Fault Records";
-    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Title = "Fault Record";
+    Layout = "~/Views/Shared/_LayoutCustomer.cshtml";
 }
 
 <table class="table table-sm table-responsive">
@@ -13,9 +13,8 @@
             <td><b>Plate Number</b></td>
             <td><b>Car Km</b></td>
             <td><b>Arrival Date</b></td>
-            <td><b>Finish Date</b></td>
-            <td><b>Total Cost</b></td>
-            <td></td>
+            <td><b>Description</b></td>
+            <td><b>Result</b></td>
         </tr>
 
     </thead>
@@ -26,9 +25,16 @@
             <td>@item.CustomerCar.Plate</td>
             <td>@item.CarKm</td>
             <td>@item.ArrivalDate.ToShortDateString()</td>
-            <td>@item.FinishDate.ToShortDateString()</td>
-            <td>@item.TotalCost.ToString("C")</td>
-            <td>@Html.ActionLink("See The Details", "SeeDetails", "Order", new { orderid = item.RecordId }, new { @class = "btn btn-sm btn-secondary" })</td>
+            <td>@item.Record</td>
+            @if (@item.Status == true)
+            {
+               <td>@Html.ActionLink("Completed", "SeeDetails", "Order", new { orderid = item.RecordId }, new { @class = "btn btn-sm btn-success" })</td>
+            }
+            else
+            {
+            <td><button type="button" class="btn btn-sm btn-warning">In Progress</button></td>
+            }
+            
         </tr>
     }
 </table>
@@ -38,7 +44,5 @@
         @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-dark" })
     </div>
 </div>
-
-
 
 
