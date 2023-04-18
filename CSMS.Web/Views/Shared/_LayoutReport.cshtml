@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <style>
+        .header img {
+            float: left;
+            width: 150px;
+            height: 150px;
+        }
+
+        .header h1 {
+            position: relative;
+            top: 18px;
+            left: 160px;
+        }
+    </style>
+
+    <div class="header">
+        <img src="~/img/Black Red and White Car Service Logo.png" alt="logo" />
+        <br />
+        <h1><b>Car Service Management System (CSMS)</b></h1>
+    </div>
+    <br />
+    <h2 style="text-align:center;"><b>Fault Report</b></h2>
+    <br />
+    <hr />
+    <br />
+    <div>
+        @RenderBody()
+    </div>
+</body>
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@RenderSection("scripts", required: false)
+</html>

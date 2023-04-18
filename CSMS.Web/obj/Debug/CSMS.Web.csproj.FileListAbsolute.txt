@@ -1007,3 +1007,12 @@ C:\Users\ASUS\Desktop\CSMS-main\CSMS.Web\obj\Debug\CSMS.Web.csproj.GenerateResou
 C:\Users\ASUS\Desktop\CSMS\CSMS.Web\obj\Debug\CSMS.Web.Migrations.DatabaseTablesChanged.resources
 C:\Users\Olcay\Documents\_projects\CSMS\CSMS.Web\obj\Debug\CSMS.Web.Migrations.DatabaseTablesChanged.resources
 C:\Users\Berk\Desktop\CSMS\CSMS.Web\obj\Debug\CSMS.Web.Migrations.DatabaseTablesChanged.resources
+C:\Users\ASUS\Desktop\CSMS\CSMS.Web\bin\AngleSharp.dll
+C:\Users\ASUS\Desktop\CSMS\CSMS.Web\bin\protobuf-net.dll
+C:\Users\ASUS\Desktop\CSMS\CSMS.Web\bin\RotativaHQ.Core.dll
+C:\Users\ASUS\Desktop\CSMS\CSMS.Web\bin\RotativaHQ.dll
+C:\Users\ASUS\Desktop\CSMS\CSMS.Web\bin\RotativaHQ.MVC5.dll
+C:\Users\ASUS\Desktop\CSMS\CSMS.Web\bin\AngleSharp.xml
+C:\Users\ASUS\Desktop\CSMS\CSMS.Web\bin\protobuf-net.pdb
+C:\Users\ASUS\Desktop\CSMS\CSMS.Web\bin\protobuf-net.xml
+C:\Users\ASUS\Desktop\CSMS\CSMS.Web\bin\Rotativa.dll

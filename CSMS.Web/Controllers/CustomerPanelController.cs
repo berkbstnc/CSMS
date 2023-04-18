@@ -1,4 +1,6 @@
 ﻿using CSMS.Models;
+using CSMS.Models.Service;
+using CSMS.Web.Abstract;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using System;
@@ -16,6 +18,7 @@ namespace CSMS.Web.Controllers
     [Authorize(Roles = "Customer")]
     public class CustomerPanelController : Controller
     {
+        private readonly Repository<Car> car = new Repository<Car>();
         public CustomerPanelController()
         {
         }
@@ -37,10 +40,16 @@ namespace CSMS.Web.Controllers
                 _userManager = value;
             }
         }
+        [HttpGet]
         public ActionResult Index()
         {
             var currentUserId = User.Identity.GetUserId();
             var uinfo = UserManager.Users.FirstOrDefault(x => x.Id == currentUserId);
+
+            var list = car.Get(x => x.ApplicationUserId == currentUserId).Select(x => x.Plate).ToList();
+
+            ViewBag.Data1 = list;
+
 
             if (uinfo != null)
                 return View(uinfo);

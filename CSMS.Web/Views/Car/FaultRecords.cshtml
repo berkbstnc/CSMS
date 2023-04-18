@@ -27,7 +27,8 @@
             <td>@item.Record</td>
             @if (@item.Status == true)
             {
-               <td>@Html.ActionLink("See The Report", "FaultReport", "Car", new { orderid = item.RecordId }, new { @class = "btn btn-sm btn-success" })</td>
+               <td>@Html.ActionLink("See The Report", "FaultReport", "Car", new { orderid = item.RecordId }, new { @class = "btn btn-sm btn-success", target = "_blank" 
+               })</td>
             }
             else
             {

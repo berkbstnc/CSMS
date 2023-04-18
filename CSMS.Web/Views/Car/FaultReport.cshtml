@@ -1,8 +1,29 @@
 ﻿@model IEnumerable<CSMS.Web.Models.Service.Period>
 
 @{
-    Layout = "~/Views/Shared/_LayoutCustomer.cshtml";
+    Layout = "~/Views/Shared/_LayoutReport.cshtml";
 }
+
+@{int i = 0;}
+
+@foreach (var item in Model)
+{
+    if (i == 1)
+    {
+        break;
+    }
+    else
+    {
+        <h3><b>Customer Name: </b>@item.Fault.CustomerCar.ApplicationUser.Name @item.Fault.CustomerCar.ApplicationUser.Surname</h3>
+        <h3><b>Plate: </b>@item.Fault.CustomerCar.Plate</h3>
+        <h3><b>Phone Number: </b>@item.Fault.CustomerCar.ApplicationUser.PhoneNumber</h3>
+        <h3><b>Adress: </b>@item.Fault.CustomerCar.ApplicationUser.Address</h3>
+        <h3><b>Arrival Date: </b>@item.Fault.ArrivalDate.ToShortDateString()</h3>
+        <h3><b>Finish Date: </b>@item.Fault.FinishDate.ToShortDateString()</h3>
+        i++;
+    }
+}
+<br />
 
 <table class="table table-responsive table-primary">
     <thead>
@@ -10,7 +31,6 @@
             <th>Operation</th>
             <th>Quantity</th>
             <th>Total Amount</th>
-            <th></th>
         </tr>
     </thead>
 
@@ -20,7 +40,6 @@
             <td>@item.Description</td>
             <td>@item.Quantity</td>
             <td>@item.TotalAmount.ToString("C")</td>
-            <th></th>
         </tr>
 
     }
@@ -29,15 +48,8 @@
             <td></td>
             <td><b>GRAND TOTAL</b></td>
             <td><b>@Model.Sum(x => x.TotalAmount).ToString("C")</b></td>
-            <td></td>
         </tr>
     </tfoot>
 </table>
-
-<div class="form-group">
-    <div class="col-md-offset-2 col-md-10">
-        @Html.ActionLink("Back to List", "Index", "Car", null, new { @class = "btn btn-dark" })
-    </div>
-</div>
 
 

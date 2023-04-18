@@ -37,8 +37,13 @@
                         <b><u>Car Information</u></b>
                         <br />
                         <br />
-                        Customer has <b> @Model.Cars.Count Car(s) </b>
+                        Customer has <b> @Model.Cars.Count Car(s): </b>
                         <br />
+                        @foreach (var item in ViewBag.Data1)
+                        {
+                            @item
+                            <br />
+                        }
                     </h4>
                 </div>
             </div>

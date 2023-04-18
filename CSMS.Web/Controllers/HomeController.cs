@@ -11,7 +11,6 @@ namespace CSMS.Controllers
         }
 
         [HttpGet]
-        //[Authorize]
         public ActionResult About()
         {
             ViewBag.Message = "Your app description page.";
@@ -24,11 +23,6 @@ namespace CSMS.Controllers
         {
             ViewBag.Message = "Your contact page.";
 
-            return View();
-        }
-
-        public ActionResult Deneme()
-        {
             return View();
         }
     }

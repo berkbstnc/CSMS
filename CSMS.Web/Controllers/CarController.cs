@@ -7,7 +7,7 @@ using System.Web;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.AspNet.Identity;
 using CSMS.Web.Models.Service;
-using System.Web.Caching;
+using Rotativa;
 
 namespace CSMS.Web.Controllers
 {
@@ -85,15 +85,18 @@ namespace CSMS.Web.Controllers
 
         public ActionResult FaultRecords(int carid)
         {
+            var info = record.Get(x => x.CarId == carid, includeProperties: "CustomerCar").FirstOrDefault();
+            ViewBag.Title = "Fault Records for " + info.CustomerCar.Plate;
             return View(record.Get(x => x.CarId == carid).OrderByDescending(x => x.RecordId).ToList());
         }
 
         public ActionResult FaultReport(int orderid)
         {
-            var info = record.Get(x => x.RecordId == orderid, includeProperties: "CustomerCar").FirstOrDefault();
-            ViewBag.Title = "Fault Record ID: " + info.RecordId;
+            //var info = record.Get(x => x.RecordId == orderid, includeProperties: "CustomerCar").FirstOrDefault();
+            ViewBag.Title = "Fault Record PDF";
             ViewBag.FaultId = orderid;
-            return View(Nperiod.Get(x => x.FaultId == orderid).OrderByDescending(x => x.PeriodId).ToList());
+            var result = Nperiod.Get(x => x.FaultId == orderid).OrderByDescending(x => x.PeriodId).ToList();
+            return new ViewAsPdf(result);
         }
     }
 }
