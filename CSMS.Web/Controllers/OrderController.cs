@@ -40,7 +40,7 @@ namespace CSMS.Web.Controllers
         {
             if (search == "" || search == null)
             {
-                var user = Nuser.Get();
+                var user = Nuser.Get().OrderByDescending(x => x.CarId);
                 return View(user);
             }
             var searchItem = Nuser.Get(x => x.ApplicationUser.Name.Contains(search) || x.ApplicationUser.Surname.Contains(search) || x.Plate.Contains(search)).ToList(); //Contains-StartsWith kullanılabilir.

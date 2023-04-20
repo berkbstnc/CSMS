@@ -8,6 +8,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.AspNet.Identity;
 using CSMS.Web.Models.Service;
 using Rotativa;
+using Microsoft.Ajax.Utilities;
 
 namespace CSMS.Web.Controllers
 {
@@ -17,9 +18,7 @@ namespace CSMS.Web.Controllers
         private readonly Repository<Car> car = new Repository<Car>();
         private readonly Repository<FaultRecord> record = new Repository<FaultRecord>();
         private readonly Repository<Period> Nperiod = new Repository<Period>();
-        public CarController()
-        {
-        }
+        public CarController() {}
 
         public CarController(ApplicationUserManager userManager)
         {
@@ -86,13 +85,20 @@ namespace CSMS.Web.Controllers
         public ActionResult FaultRecords(int carid)
         {
             var info = record.Get(x => x.CarId == carid, includeProperties: "CustomerCar").FirstOrDefault();
-            ViewBag.Title = "Fault Records for " + info.CustomerCar.Plate;
-            return View(record.Get(x => x.CarId == carid).OrderByDescending(x => x.RecordId).ToList());
+            if (record.Get(x => x.CarId == carid).Any() == false)
+            {
+                ViewBag.Title = "No Fault Record!";
+                return View(record.Get(x => x.CarId == carid).OrderByDescending(x => x.RecordId).ToList());
+            }
+            else
+            {
+                ViewBag.Title = "Fault Records for " + info.CustomerCar.Plate;
+                return View(record.Get(x => x.CarId == carid).OrderByDescending(x => x.RecordId).ToList());
+            }
         }
 
         public ActionResult FaultReport(int orderid)
         {
-            //var info = record.Get(x => x.RecordId == orderid, includeProperties: "CustomerCar").FirstOrDefault();
             ViewBag.Title = "Fault Record PDF";
             ViewBag.FaultId = orderid;
             var result = Nperiod.Get(x => x.FaultId == orderid).OrderByDescending(x => x.PeriodId).ToList();
