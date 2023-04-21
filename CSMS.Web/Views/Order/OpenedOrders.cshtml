@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<table class="table table-sm table-responsive">
+<table class="table table-sm table-responsive" style="table-layout: fixed;">
     <thead>
         
         <tr>
@@ -25,7 +25,7 @@
                     <td>@item.CustomerCar.Plate</td>
                     <td>@item.CarKm</td>
                     <td>@item.ArrivalDate.ToShortDateString()</td>
-                    <td>@item.Record</td>
+                    <td style="overflow-wrap: break-word;">@item.Record</td>
                     <td>@Html.ActionLink("Make an Operation","MakeOperation","Order",new {orderid=item.RecordId}, new {@class="btn btn-sm btn-secondary"})</td>
                 </tr>
             }
@@ -36,5 +36,3 @@
         @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-dark" })
     </div>
 </div>
-
-

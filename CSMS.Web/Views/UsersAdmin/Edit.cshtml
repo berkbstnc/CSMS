@@ -20,15 +20,19 @@
             @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.Email)
         </div>
+        <br />
     </div>
     <div class="form-group">
-        @Html.Label("Roles", new { @class = "control-label col-md-2" })
+        @Html.Label("Role"):
+        &nbsp;
 
         <span class=" col-md-10">
             @foreach (var item in Model.RolesList)
             {
-                <input type="checkbox" name="SelectedRole" value="@item.Value" checked="@item.Selected" class="checkbox-inline" />
+                <input type="radio" name="SelectedRole" value="@item.Value" checked="@item.Selected" class="checkbox-inline" />
                 @Html.Label(item.Value, new { @class = "control-label" })
+                <a>&nbsp;</a>
+
             }
         </span>
     </div>
@@ -41,6 +45,8 @@
     </div>
 </div>
 }
+
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
