@@ -5,13 +5,13 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-@*<p>
-    @Html.ActionLink("Create New", "Create")
-</p>*@
 <table class="table">
     <tr>
         <th>
-            <a>User Accounts</a>
+            <a>Mail Adress</a>
+        </th>
+        <th>
+            <a>Role</a>
         </th>
         <th></th>
     </tr>
@@ -22,11 +22,24 @@
             <td>
                 @Html.DisplayFor(modelItem => item.UserName)
             </td>
+            @foreach (var x in item.Roles)
+            {
+                if (x.RoleId == "6c20cc94-40e9-4261-945c-bf8320561068")
+                {
+                    <td>Admin</td>
+                }
+                else if (x.RoleId == "72543cc3-fee3-44bc-a014-e5e1312dc790")
+                {
+                    <td>Customer</td>
+                }
+                else
+                {
+                    <td>Mechanic</td>
+                }
 
+            }
             <td>
-                @*<a href='@Url.Action("Edit", "UsersAdmin")' class="btn btn-primary">Edit</a>*@
                 @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-sm btn-primary" })
-                @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-sm btn-warning" })
                 @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-sm btn-danger" })
             </td>
         </tr>
