@@ -39,8 +39,8 @@
                 {
                     ApplicationUser user = new ApplicationUser()
                     {
-                        Name = "John",
-                        Surname = "Doe",
+                        Name = "CSMS",
+                        Surname = "Admin",
                         Email = "admin@example.com",
                         Address = "123 Main St, Anytown, USA",
                         PhoneNumber = "555-555-1212",

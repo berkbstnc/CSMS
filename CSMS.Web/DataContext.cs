@@ -15,5 +15,6 @@ namespace CSMS.Web
 {
     public class DataContext : ApplicationDbContext
     {
+        public System.Data.Entity.DbSet<CSMS.Models.EditUserViewModel> EditUserViewModels { get; set; }
     }
 }

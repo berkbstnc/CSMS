@@ -61,6 +61,5 @@ namespace CSMS.Models
         public DbSet<FaultRecord> FaultRecords { get; set; }
         public DbSet<Appointment> Appointments { get; set; }
         public DbSet<Period> Periods { get; set; }
-
     }
 }

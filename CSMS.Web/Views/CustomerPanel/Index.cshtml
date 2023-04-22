@@ -7,7 +7,7 @@
 <div class="container">
     <div class="row ">
         <div class="col-sm col-6">
-            <div class="card text-white text-center bg-dark pb-2">
+            <div class="card text-white text-center bg-dark">
                 <div class="card-body">
                     <h4>
                         <b><u>Customer Information</u></b>
@@ -24,10 +24,10 @@
                         <b>Phone Number:</b> @Model.PhoneNumber
                         <br />
                     </h4>
+
                 </div>
-
+                @Html.ActionLink("Edit Profile", "Edit", new { id = Model.Id }, new { @class = "btn btn-sm btn-warning" })
             </div>
-
         </div>
 
         <div class="col-sm col-6">
@@ -39,6 +39,7 @@
                         <br />
                         Customer has <b> @Model.Cars.Count Car(s): </b>
                         <br />
+
                         @foreach (var item in ViewBag.Data1)
                         {
                             @item
@@ -46,6 +47,7 @@
                         }
                     </h4>
                 </div>
+                @Html.ActionLink("Details", "Index", "Car", new { id = Model.Id }, new { @class = "btn btn-sm btn-warning" })
             </div>
         </div>
     </div>

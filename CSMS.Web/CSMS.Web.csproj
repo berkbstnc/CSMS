@@ -325,6 +325,7 @@
     <Content Include="Views\Car\FaultRecords.cshtml" />
     <Content Include="Views\Car\FaultReport.cshtml" />
     <Content Include="Views\Shared\_LayoutReport.cshtml" />
+    <Content Include="Views\CustomerPanel\Edit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

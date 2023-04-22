@@ -11,6 +11,9 @@
             <a>Mail Adress</a>
         </th>
         <th>
+            <a>Name</a>
+        </th>
+        <th>
             <a>Role</a>
         </th>
         <th></th>
@@ -21,6 +24,9 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name) @Html.DisplayFor(modelItem => item.Surname)
             </td>
             @foreach (var x in item.Roles)
             {
