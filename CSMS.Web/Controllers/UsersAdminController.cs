@@ -1,17 +1,23 @@
 ﻿using CSMS.Models;
+using CSMS.Web.Abstract;
+using CSMS.Web.Models.Service;
+using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
+using RotativaHQ.Core;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 
 namespace CSMS.Controllers
 {
     [Authorize(Roles = "Admin")]
     public class UsersAdminController : Controller
     {
+        private readonly Repository<ApplicationUser> Nuser = new Repository<ApplicationUser>();
         public UsersAdminController()
         {
         }
@@ -48,13 +54,14 @@ namespace CSMS.Controllers
             }
         }
 
-        //
-        // GET: /Users/
-        [HttpGet]
-        public async Task<ActionResult> Index()
+        public async Task<ActionResult> Index(string search)
         {
+            if (search == "" || search == null)
+            {
+                return View(await UserManager.Users.ToListAsync());
+            }
 
-            return View(await UserManager.Users.ToListAsync());
+            return View(await UserManager.Users.Where(x => x.Name.Contains(search) || x.Surname.Contains(search) || x.Email.Contains(search)).ToListAsync());
         }
 
         //

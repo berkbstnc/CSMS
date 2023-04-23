@@ -5,6 +5,25 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <div class="col">
+            Search (Mail Adress / Name)
+            <input type="text" class=" form-control" name="search" />
+        </div>
+    </div>
+    <br />
+    <div class="col">
+        <input type="submit" class="btn btn-secondary" value="Search" />
+    </div>
+    <br />
+
+
+}
+
+
+<hr />
 <table class="table">
     <tr>
         <th>
