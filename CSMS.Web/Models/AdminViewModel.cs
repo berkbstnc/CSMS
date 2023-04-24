@@ -20,6 +20,16 @@ namespace CSMS.Models
         [Display(Name = "Email")]
         [EmailAddress]
         public string Email { get; set; }
+
+        public IEnumerable<SelectListItem> RolesList { get; set; }
+    }
+
+    public class EditCustomerViewModel
+    {
+        public string Id { get; set; }
+        [Display(Name = "Email")]
+        [EmailAddress]
+        public string Email { get; set; }
         [Required]
         [StringLength(50)]
         [Display(Name = "Name")]
@@ -41,6 +51,6 @@ namespace CSMS.Models
         [DataType(DataType.MultilineText)]
         [Display(Name = "Address")]
         public string Address { get; set; }
-        public IEnumerable<SelectListItem> RolesList { get; set; }
     }
+
 }

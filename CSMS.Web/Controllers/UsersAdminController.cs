@@ -56,6 +56,8 @@ namespace CSMS.Controllers
 
         public async Task<ActionResult> Index(string search)
         {
+            ViewBag.RoleNames = RoleManager.Roles;
+
             if (search == "" || search == null)
             {
                 return View(await UserManager.Users.ToListAsync());

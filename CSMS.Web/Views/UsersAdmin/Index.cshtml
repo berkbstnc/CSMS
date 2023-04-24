@@ -38,6 +38,7 @@
         <th></th>
     </tr>
 
+
     @foreach (var item in Model)
     {
         <tr>
@@ -49,18 +50,13 @@
             </td>
             @foreach (var x in item.Roles)
             {
-                if (x.RoleId == "6c20cc94-40e9-4261-945c-bf8320561068")
-                {
-                    <td>Admin</td>
-                }
-                else if (x.RoleId == "72543cc3-fee3-44bc-a014-e5e1312dc790")
-                {
-                    <td>Customer</td>
-                }
-                else
-                {
-                    <td>Mechanic</td>
-                }
+                foreach(var y in ViewBag.RoleNames)
+                    {
+                        if(x.RoleId == y.Id)
+                        {
+                            <td>@y.Name</td>
+                        }
+                    }
 
             }
             <td>

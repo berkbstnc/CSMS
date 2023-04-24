@@ -3,12 +3,10 @@ using CSMS.Models.Service;
 using CSMS.Web.Abstract;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
-using Microsoft.Owin.BuilderProperties;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Net;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -21,7 +19,6 @@ namespace CSMS.Web.Controllers
     public class CustomerPanelController : Controller
     {
         private readonly Repository<Car> car = new Repository<Car>();
-        private readonly Repository<ApplicationUser> apuser = new Repository<ApplicationUser>();
         public CustomerPanelController()
         {
         }
@@ -58,12 +55,13 @@ namespace CSMS.Web.Controllers
                 return View(uinfo);
             return View("Not Found");
         }
+
         [HttpGet]
         public async Task<ActionResult> Edit(string id)
         {
             var user = await UserManager.FindByIdAsync(id);
 
-            return View(new EditUserViewModel()
+            return View(new EditCustomerViewModel()
             {
                 Id = user.Id,
                 Email = user.Email,
@@ -77,17 +75,17 @@ namespace CSMS.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Email,Id,Name,Surname,Address,PhoneNumber")] EditUserViewModel editUser)
+        public async Task<ActionResult> Edit([Bind(Include = "Email,Id,Name,Surname,Address,PhoneNumber")] EditCustomerViewModel editUser)
         {
 
-         var user = await UserManager.FindByIdAsync(editUser.Id);
-         user.Email = editUser.Email;
-         user.Name = editUser.Name;
-         user.Surname = editUser.Surname;
-         user.Address = editUser.Address;
-         user.PhoneNumber = editUser.PhoneNumber;
-         UserManager.Update(user);
-         return RedirectToAction("Index");
+            var user = await UserManager.FindByIdAsync(editUser.Id);
+            user.Email = editUser.Email;
+            user.Name = editUser.Name;
+            user.Surname = editUser.Surname;
+            user.Address = editUser.Address;
+            user.PhoneNumber = editUser.PhoneNumber;
+            UserManager.Update(user);
+            return RedirectToAction("Index");
         }
 
     }
