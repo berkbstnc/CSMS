@@ -189,7 +189,12 @@
     <Content Include="CreatePackage.txt" />
     <Content Include="Global.asax" />
     <Content Include="img\atilim.jpg" />
-    <Content Include="img\Black Red and White Car Service Logo.png" />
+    <Content Include="img\Black Red and White Car Service Logo_2.png" />
+    <Content Include="img\CSMS logo.png" />
+    <Content Include="img\logo.jpeg" />
+    <Content Include="img\logov2.jpeg" />
+    <Content Include="img\logov3.jpeg" />
+    <Content Include="img\logov4.jpeg" />
     <Content Include="img\repair.png" />
     <Content Include="img\slider1.jpeg" />
     <Content Include="img\slider2.jpeg" />
