@@ -14,6 +14,7 @@ namespace CSMS.Web.Controllers
     [Authorize]
     public class MechanicController : Controller
     {
+        private Repository<Appointment> appointmentRepository = new Repository<Appointment>();
         private ApplicationUserManager _userManager;
         public ApplicationUserManager UserManager
         {
@@ -51,14 +52,16 @@ namespace CSMS.Web.Controllers
 
         public ActionResult Index()
         {
+            string userId = User.Identity.GetUserId();
+            ApplicationUser user = UserManager.Users.FirstOrDefault(x => x.Id == userId);
             // TODO: Burasinin duzeltilmesi gerekiyor.
-            ApplicationUser[] mechanicUsers = (from user in UserManager.Users select user)
+            ApplicationUser[] mechanicUsers = (from user_ in UserManager.Users select user_)
                 .ToArray()
-                .Where(user => UserManager.IsInRole(user.Id, "Mechanic"))
+                .Where(user_ => UserManager.IsInRole(user_.Id, "Mechanic"))
                 .Take(10)
                 .ToArray();
             ViewBag.MechanicUsers = mechanicUsers;
-            return View();
+            return View(user);
         }
     }
 }

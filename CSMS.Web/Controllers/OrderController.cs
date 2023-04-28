@@ -49,14 +49,22 @@ namespace CSMS.Web.Controllers
 
         public ActionResult OrderCreate(int carid)
         {
+            ViewResult view = View();
             ViewBag.CarId = carid;
-            return View();
+            if (UserManager.IsInRole(User.Identity.GetUserId(), "Admin"))
+                view.MasterName = "~/Views/Shared/_LayoutAdmin.cshtml";
+            else if (UserManager.IsInRole(User.Identity.GetUserId(), "Mechanic"))
+                view.MasterName = "~/Views/Shared/_LayoutMechanic.cshtml";
+            return view;
         }
 
         public ActionResult Create(FaultRecord faultRecord)
         {
             record.Insert(faultRecord);
-            return RedirectToAction("OpenedOrders");
+            if (UserManager.IsInRole(User.Identity.GetUserId(), "Admin"))
+                return RedirectToAction("OpenedOrders");
+
+            return RedirectToAction("Index", "Appointment");
         }
 
         public ActionResult OpenedOrders()
@@ -73,7 +81,12 @@ namespace CSMS.Web.Controllers
             var info = record.Get(x => x.RecordId == orderid, includeProperties: "CustomerCar").FirstOrDefault();
             ViewBag.Title = "Car Plate: " + info.CustomerCar.Plate;
             ViewBag.FaultId = orderid;
-            return View(Nperiod.Get(x => x.FaultId == orderid).OrderByDescending(x => x.PeriodId).ToList());
+            ViewResult view = View(Nperiod.Get(x => x.FaultId == orderid).OrderByDescending(x => x.PeriodId).ToList());
+            if (UserManager.IsInRole(User.Identity.GetUserId(), "Admin"))
+                view.MasterName = "~/Views/Shared/_LayoutAdmin.cshtml";
+            else if (UserManager.IsInRole(User.Identity.GetUserId(), "Mechanic"))
+                view.MasterName = "~/Views/Shared/_LayoutMechanic.cshtml";
+            return view;
         }
 
         public ActionResult SaveOperation(Period period)
@@ -96,7 +109,10 @@ namespace CSMS.Web.Controllers
             FID.Status = true;
             FID.FinishDate = DateTime.Now;
             record.Update(FID);
-            return RedirectToAction("ClosedOrders");
+            if (UserManager.IsInRole(User.Identity.GetUserId(), "Admin"))
+                return RedirectToAction("ClosedOrders");
+            
+            return RedirectToAction("Index", "Appointment");
         }
 
         public ActionResult SeeDetails(int orderid)

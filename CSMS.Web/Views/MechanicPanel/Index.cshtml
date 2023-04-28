@@ -1,0 +1,31 @@
+﻿@model CSMS.Models.ApplicationUser
+@{
+    ViewBag.Title = "Mechanic Panel";
+    Layout = "~/Views/Shared/_LayoutMechanic.cshtml";
+}
+
+<div class="container">
+    <div class="row ">
+        <div class="col-sm col-6">
+            <div class="card text-white text-center bg-dark">
+                <div class="card-body">
+                    <h4>
+                        <b><u>Mechanic Information</u></b>
+                        <br />
+                        <br />
+                        <b>Name:</b> @Model.Name
+                        <br />
+                        <b>Surname:</b> @Model.Surname
+                        <br />
+                        <b>Email:</b> @Model.Email
+                        <br />
+                        <b>Adress:</b> @Model.Address
+                        <br />
+                        <b>Phone Number:</b> @Model.PhoneNumber
+                        <br />
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

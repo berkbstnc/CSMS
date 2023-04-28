@@ -67,8 +67,6 @@ else
                             <td>@appoinment.AppointmentDate.ToString("dd/MM/yyyy HH:mm:ss")</td>
                             <td>
                                 @Html.ActionLink("Fault Records", "FaultRecords", "Car", new { carid = appoinment.Car.CarId }, new { @class = "btn btn-sm btn-secondary" })
-                                @Html.ActionLink("Create Fault Record", "OrderCreate", "Order", new { carid = appoinment.Car.CarId }, new { @class = "btn btn-sm btn-success" })
-                                @Html.ActionLink("Close Appointment", "CloseAppointment", "Appointment", new { appointmentId = appoinment.AppointmentId }, new { @class = "btn btn-sm btn-danger" })
                             </td>
                         </tr>
                     }

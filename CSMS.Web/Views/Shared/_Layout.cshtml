@@ -60,6 +60,12 @@
                         <li class="nav-item"><a href="/CustomerPanel" class="nav-link text-white">Customer Panel</a></li></h4>
 
                     }
+                    @if (Request.IsAuthenticated && User.IsInRole("Mechanic"))
+                    {
+                        <h4>
+                        <li class="nav-item"><a href="/MechanicPanel" class="nav-link text-white">Mechanic Panel</a></li></h4>
+
+                    }
                 </ul>
 
 				@Html.Partial("_LoginPartial")

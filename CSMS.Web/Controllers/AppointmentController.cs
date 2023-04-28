@@ -41,9 +41,20 @@ namespace CSMS.Web.Controllers
 
         public ActionResult Index()
         {
+            ViewResult view = View();
             ApplicationUser currentUser = UserManager.FindById(User.Identity.GetUserId());
-            ViewBag.Appointments = repository.List().Where(a => currentUser.Cars.Any(c => a.CarId == c.CarId)).ToArray();
-            return View();
+            if (UserManager.IsInRole(currentUser.Id, "Customer"))
+            {
+                ViewBag.Appointments = repository.List().Where(a => currentUser.Cars.Any(c => a.CarId == c.CarId)).ToArray();
+                view.MasterName = "~/Views/Shared/_LayoutCustomer.cshtml";
+            }
+            else if (UserManager.IsInRole(currentUser.Id, "Mechanic"))
+            {
+                Appointment[] appointments = repository.List().Where(a => a.MechanicUserId == currentUser.Id && a.Status == 0).ToArray();
+                ViewBag.Appointments = appointments;
+                view.MasterName = "~/Views/Shared/_LayoutMechanic.cshtml";
+            }
+            return view;
         }
 
         public ActionResult Create(string id, string date)
@@ -124,5 +135,33 @@ namespace CSMS.Web.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpGet]
+        public ActionResult CloseAppointment()
+        {
+            int appointmentId = int.Parse(HttpContext.Request.Params["appointmentId"]);
+            Appointment appointment = repository.GetById(appointmentId);
+            appointment.Status = 1;
+            repository.Update(appointment);
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult History()
+        {
+            ViewResult view = View();
+            ApplicationUser currentUser = UserManager.FindById(User.Identity.GetUserId());
+            if (UserManager.IsInRole(currentUser.Id, "Customer"))
+            {
+                ViewBag.Appointments = repository.List().Where(a => currentUser.Cars.Any(c => a.CarId == c.CarId && a.Status == 1)).ToArray();
+                view.MasterName = "~/Views/Shared/_LayoutCustomer.cshtml";
+            }
+            else if (UserManager.IsInRole(currentUser.Id, "Mechanic"))
+            {
+                Appointment[] appointments = repository.List().Where(a => a.MechanicUserId == currentUser.Id && a.Status == 1).ToArray();
+                ViewBag.Appointments = appointments;
+                view.MasterName = "~/Views/Shared/_LayoutMechanic.cshtml";
+            }
+            return view;
+        }
     }
 }

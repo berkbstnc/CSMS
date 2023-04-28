@@ -87,16 +87,16 @@ namespace CSMS.Web.Controllers
         public ActionResult FaultRecords(int carid)
         {
             var info = record.Get(x => x.CarId == carid, includeProperties: "CustomerCar").FirstOrDefault();
-            if (record.Get(x => x.CarId == carid).Any() == false)
-            {
-                ViewBag.Title = "No Fault Record!";
-                return View(record.Get(x => x.CarId == carid).OrderByDescending(x => x.RecordId).ToList());
-            }
-            else
-            {
-                ViewBag.Title = "Fault Records for " + info.CustomerCar.Plate;
-                return View(record.Get(x => x.CarId == carid).OrderByDescending(x => x.RecordId).ToList());
-            }
+            ViewResult view = View(record.Get(x => x.CarId == carid).OrderByDescending(x => x.RecordId).ToList());
+            ViewBag.Title = !record.Get(x => x.CarId == carid).Any() ? "No Fault Record!" : "Fault Records for " + info.CustomerCar.Plate;
+            string userId = User.Identity.GetUserId();
+            if (UserManager.IsInRole(userId, "Customer"))
+                view.MasterName = "~/Views/Shared/_LayoutCustomer.cshtml";
+            else if (UserManager.IsInRole(userId, "Mechanic"))
+                view.MasterName = "~/Views/Shared/_LayoutMechanic.cshtml";
+
+            ViewBag.UserId = userId;
+            return view;
         }
 
         public ActionResult FaultReport(int orderid)

@@ -27,22 +27,20 @@
             <td style="overflow-wrap: break-word;">@item.Record</td>
             @if (@item.Status == true)
             {
-               <td>@Html.ActionLink("See The Report", "FaultReport", "Car", new { orderid = item.RecordId }, new { @class = "btn btn-sm btn-success", target = "_blank" 
-               })</td>
+                <td>
+                    @Html.ActionLink("See The Report", "FaultReport", "Car", new { orderid = item.RecordId }, new { @class = "btn btn-sm btn-success", target = "_blank"})
+                </td>
             }
             else
             {
-            <td><button type="button" class="btn btn-sm btn-warning">In Progress</button></td>
+                <td>
+                    @Html.ActionLink("Make an Operation", "MakeOperation", "Order", new { orderid = item.RecordId }, new { @class = "btn btn-sm btn-secondary" })
+                    <button type="button" class="btn btn-sm btn-warning">In Progress</button>
+                </td>
             }
             
         </tr>
     }
 </table>
-
-<div class="form-group">
-    <div class="col-md-offset-2 col-md-10">
-        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-dark" })
-    </div>
-</div>
 
 

@@ -273,6 +273,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\MechanicPanelController.cs" />
     <Compile Include="Controllers\MechanicController.cs" />
     <Compile Include="Controllers\AppointmentController.cs" />
     <Compile Include="Controllers\CarController.cs" />
@@ -326,6 +327,9 @@
     <Content Include="Views\Car\FaultReport.cshtml" />
     <Content Include="Views\Shared\_LayoutReport.cshtml" />
     <Content Include="Views\CustomerPanel\Edit.cshtml" />
+    <Content Include="Views\Shared\_LayoutMechanic.cshtml" />
+    <Content Include="Views\MechanicPanel\Index.cshtml" />
+    <Content Include="Views\Appointment\History.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
