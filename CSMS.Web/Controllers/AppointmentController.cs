@@ -54,6 +54,12 @@ namespace CSMS.Web.Controllers
                 ViewBag.Appointments = appointments;
                 view.MasterName = "~/Views/Shared/_LayoutMechanic.cshtml";
             }
+            else if (UserManager.IsInRole(currentUser.Id, "Admin"))
+            {
+                Appointment[] appointments = repository.List().ToArray();
+                ViewBag.Appointments = appointments;
+                view.MasterName = "~/Views/Shared/_LayoutAdmin.cshtml";
+            }
             return view;
         }
 
