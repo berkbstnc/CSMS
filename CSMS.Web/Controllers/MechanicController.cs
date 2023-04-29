@@ -52,8 +52,6 @@ namespace CSMS.Web.Controllers
 
         public ActionResult Index()
         {
-            string userId = User.Identity.GetUserId();
-            ApplicationUser user = UserManager.Users.FirstOrDefault(x => x.Id == userId);
             // TODO: Burasinin duzeltilmesi gerekiyor.
             ApplicationUser[] mechanicUsers = (from user_ in UserManager.Users select user_)
                 .ToArray()
@@ -61,7 +59,7 @@ namespace CSMS.Web.Controllers
                 .Take(10)
                 .ToArray();
             ViewBag.MechanicUsers = mechanicUsers;
-            return View(user);
+            return View();
         }
     }
 }

@@ -43,7 +43,11 @@
                                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                                     <li class="nav-item"><a href="/Order/ClosedOrders" class="nav-link">Closed Fault Records</a></li>
                                 </ul>
-
+                                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                    <li class="nav-item">
+                                        @Html.ActionLink("Appointment List", "Index", "Appointment", null, new { @class = "nav-link" })
+                                    </li>
+                                </ul>
                             </div>
                         </li>
                     </ul>
