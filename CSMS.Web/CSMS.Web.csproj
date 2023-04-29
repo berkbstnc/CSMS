@@ -335,6 +335,7 @@
     <Content Include="Views\Shared\_LayoutMechanic.cshtml" />
     <Content Include="Views\MechanicPanel\Index.cshtml" />
     <Content Include="Views\Appointment\History.cshtml" />
+    <Content Include="Views\Car\MechanicFaultRecords.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

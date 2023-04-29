@@ -1,7 +1,7 @@
 ﻿@model CSMS.Models.Service.Appointment
 
 @{
-    ViewBag.Title = "Appointment List";
+    ViewBag.Title = "Appointment History";
 }
 
 
@@ -66,7 +66,7 @@ else
                             <td>@appoinment.Car.Plate</td>
                             <td>@appoinment.AppointmentDate.ToString("dd/MM/yyyy HH:mm:ss")</td>
                             <td>
-                                @Html.ActionLink("Fault Records", "FaultRecords", "Car", new { carid = appoinment.Car.CarId }, new { @class = "btn btn-sm btn-secondary" })
+                                @Html.ActionLink("Fault Records", "MechanicFaultRecords", "Car", new { carid = appoinment.Car.CarId }, new { @class = "btn btn-sm btn-secondary" })
                             </td>
                         </tr>
                     }

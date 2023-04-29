@@ -99,6 +99,21 @@ namespace CSMS.Web.Controllers
             return view;
         }
 
+        public ActionResult MechanicFaultRecords(int carid)
+        {
+            var info = record.Get(x => x.CarId == carid, includeProperties: "CustomerCar").FirstOrDefault();
+            ViewResult view = View(record.Get(x => x.CarId == carid).OrderByDescending(x => x.RecordId).ToList());
+            ViewBag.Title = !record.Get(x => x.CarId == carid).Any() ? "No Fault Record!" : "Fault Records for " + info.CustomerCar.Plate;
+            string userId = User.Identity.GetUserId();
+            if (UserManager.IsInRole(userId, "Customer"))
+                view.MasterName = "~/Views/Shared/_LayoutCustomer.cshtml";
+            else if (UserManager.IsInRole(userId, "Mechanic"))
+                view.MasterName = "~/Views/Shared/_LayoutMechanic.cshtml";
+
+            ViewBag.UserId = userId;
+            return view;
+        }
+
         public ActionResult FaultReport(int orderid)
         {
             ViewBag.Title = "Fault Record PDF";
