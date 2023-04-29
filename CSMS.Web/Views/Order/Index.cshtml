@@ -7,17 +7,17 @@
 
 @using (Html.BeginForm())
 {
-    <div class="row">
-        <div class="col">
-            Search (Customer Name / Plate)
-            <input type="text" class=" form-control" name="search" />
+    <div>
+        Search (Customer Name / Plate)
+    </div>
+        <div class="row">
+            <div class="col-sm-2">
+                <input type="text" id="searchCustomer" class=" form-control" name="search" />
+            </div>
+            <div class="col-sm-3">
+                <input type="submit" class="btn btn-secondary" value="Search" />
+            </div>
         </div>
-    </div>
-    <br />
-    <div class="col">
-        <input type="submit" class="btn btn-secondary" value="Search" />
-    </div>
-    <br />
 
 
 }
