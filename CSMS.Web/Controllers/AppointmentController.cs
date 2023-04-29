@@ -45,18 +45,18 @@ namespace CSMS.Web.Controllers
             ApplicationUser currentUser = UserManager.FindById(User.Identity.GetUserId());
             if (UserManager.IsInRole(currentUser.Id, "Customer"))
             {
-                ViewBag.Appointments = repository.List().Where(a => currentUser.Cars.Any(c => a.CarId == c.CarId)).ToArray();
+                ViewBag.Appointments = repository.List().OrderByDescending(a => a.AppointmentDate).Where(a => currentUser.Cars.Any(c => a.CarId == c.CarId)).ToArray();
                 view.MasterName = "~/Views/Shared/_LayoutCustomer.cshtml";
             }
             else if (UserManager.IsInRole(currentUser.Id, "Mechanic"))
             {
-                Appointment[] appointments = repository.List().Where(a => a.MechanicUserId == currentUser.Id && a.Status == 0).ToArray();
+                Appointment[] appointments = repository.List().OrderByDescending(a => a.AppointmentDate).Where(a => a.MechanicUserId == currentUser.Id && a.Status == 0).ToArray();
                 ViewBag.Appointments = appointments;
                 view.MasterName = "~/Views/Shared/_LayoutMechanic.cshtml";
             }
             else if (UserManager.IsInRole(currentUser.Id, "Admin"))
             {
-                Appointment[] appointments = repository.List().ToArray();
+                Appointment[] appointments = repository.List().OrderByDescending(a => a.AppointmentDate).ToArray();
                 ViewBag.Appointments = appointments;
                 view.MasterName = "~/Views/Shared/_LayoutAdmin.cshtml";
             }
@@ -158,18 +158,18 @@ namespace CSMS.Web.Controllers
             ApplicationUser currentUser = UserManager.FindById(User.Identity.GetUserId());
             if (UserManager.IsInRole(currentUser.Id, "Customer"))
             {
-                ViewBag.Appointments = repository.List().Where(a => currentUser.Cars.Any(c => a.CarId == c.CarId && a.Status == 1)).ToArray();
+                ViewBag.Appointments = repository.List().OrderByDescending(a => a.AppointmentDate).Where(a => currentUser.Cars.Any(c => a.CarId == c.CarId && a.Status == 1)).ToArray();
                 view.MasterName = "~/Views/Shared/_LayoutCustomer.cshtml";
             }
             else if (UserManager.IsInRole(currentUser.Id, "Mechanic"))
             {
-                Appointment[] appointments = repository.List().Where(a => a.MechanicUserId == currentUser.Id && a.Status == 1).ToArray();
+                Appointment[] appointments = repository.List().OrderByDescending(a => a.AppointmentDate).Where(a => a.MechanicUserId == currentUser.Id && a.Status == 1).ToArray();
                 ViewBag.Appointments = appointments;
                 view.MasterName = "~/Views/Shared/_LayoutMechanic.cshtml";
             }
             else if (UserManager.IsInRole(currentUser.Id, "Admin"))
             {
-                Appointment[] appointments = repository.List().ToArray();
+                Appointment[] appointments = repository.List().OrderByDescending(a => a.AppointmentDate).ToArray();
                 ViewBag.Appointments = appointments;
                 view.MasterName = "~/Views/Shared/_LayoutAdmin.cshtml";
             }
