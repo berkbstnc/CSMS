@@ -25,9 +25,6 @@
         <th>
             @Html.DisplayNameFor(model => model.Plate)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MaintenanceDate)
-        </th>
         <th></th>
     </tr>
 
@@ -48,16 +45,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Plate)
-            </td>
-            <td>
-                @{
-                    DateTime last = DateTime.Parse(item.MaintenanceDate).AddYears(2);
-                    DateTime now = DateTime.Now;
-                    TimeSpan diff = last.Subtract(now);
-                    int remaining = (int)diff.TotalDays;
-
-                }
-                The next maintenance is @remaining days later.
             </td>
             <td>
                 @Html.ActionLink("Fault Records", "FaultRecords", "Car", new { carid = item.CarId }, new { @class = "btn btn-sm btn-secondary" })

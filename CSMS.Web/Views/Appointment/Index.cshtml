@@ -4,23 +4,6 @@
     ViewBag.Title = "Appointment List";
 }
 
-@using (Html.BeginForm())
-{
-    <div class="row">
-        <div class="col">
-            Search (Plate / Mechanic Name)
-            <input type="text" class=" form-control" name="search" />
-        </div>
-    </div>
-    <br />
-    <div class="col">
-        <input type="submit" class="btn btn-secondary" value="Search"/>
-    </div>
-    <br />
-
-
-}
-
 
 @if (!string.IsNullOrEmpty(ViewBag.CustomError))
 {
@@ -53,7 +36,6 @@ else
                             <td>@appointment.Description</td>
                             <td>@appointment.AppointmentDate.ToString("dd/MM/yyyy HH:mm:ss")</td>
                             <td>
-                                @Html.ActionLink("Edit", "Edit", new { id = appointment.AppointmentId }, new { @class = "btn btn-sm btn-primary" })
                                 <button type="button" onclick="silmodal(this)" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#SilModal" data-id="@appointment.AppointmentId">
                                     Delete
                                 </button>

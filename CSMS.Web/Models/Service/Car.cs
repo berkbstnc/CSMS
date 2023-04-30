@@ -17,7 +17,6 @@ namespace CSMS.Models.Service
         public int Year { get; set; }
         public string Type { get; set; }
         public string Plate { get; set; }
-        public string MaintenanceDate { get; set; }
         public virtual ApplicationUser ApplicationUser { get; set; }
     }
 }
