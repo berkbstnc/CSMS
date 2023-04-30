@@ -336,6 +336,12 @@
     <Content Include="Views\MechanicPanel\Index.cshtml" />
     <Content Include="Views\Appointment\History.cshtml" />
     <Content Include="Views\Car\MechanicFaultRecords.cshtml" />
+    <Content Include="Views\Material\Create.cshtml" />
+    <Content Include="Views\Material\Delete.cshtml" />
+    <Content Include="Views\Material\Details.cshtml" />
+    <Content Include="Views\Material\Edit.cshtml" />
+    <Content Include="Views\Material\Index.cshtml" />
+    <Content Include="Views\Appointment\Edit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

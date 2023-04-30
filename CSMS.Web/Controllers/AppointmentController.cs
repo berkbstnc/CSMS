@@ -3,10 +3,13 @@ using CSMS.Models.Service;
 using CSMS.Web.Abstract;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Logging;
 using System;
 using System.Data.Common;
 using System.Linq;
+using System.Net;
 using System.Security.Cryptography;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using WebGrease.Css.Extensions;
@@ -39,13 +42,17 @@ namespace CSMS.Web.Controllers
             UserManager = userManager;
         }
 
-        public ActionResult Index()
+        public ActionResult Index(string search)
         {
+            System.Diagnostics.Debug.WriteLine("search " + search);
+            
             ViewResult view = View();
             ApplicationUser currentUser = UserManager.FindById(User.Identity.GetUserId());
             if (UserManager.IsInRole(currentUser.Id, "Customer"))
             {
-                ViewBag.Appointments = repository.List().OrderByDescending(a => a.AppointmentDate).Where(a => currentUser.Cars.Any(c => a.CarId == c.CarId)).ToArray();
+                Appointment[] appointments = repository.List().OrderByDescending(a => a.AppointmentDate).Where(a => currentUser.Cars.Any(c => a.CarId == c.CarId)).ToArray();
+                ViewBag.Appointments = appointments;
+                System.Diagnostics.Debug.WriteLine(appointments);
                 view.MasterName = "~/Views/Shared/_LayoutCustomer.cshtml";
             }
             else if (UserManager.IsInRole(currentUser.Id, "Mechanic"))
@@ -175,5 +182,30 @@ namespace CSMS.Web.Controllers
             }
             return view;
         }
+
+        [HttpPost]
+        public ActionResult Delete(int id)
+        {
+            var delete = repository.GetById(id);
+            repository.Delete(delete);
+            return RedirectToAction("Index");
+
+        }
+
+        public ActionResult Edit(int id)
+        {
+            var carID = repository.GetById(id);
+            return View(carID);
+        }
+        [HttpPost]
+        public ActionResult Edit(Appointment p)
+        {
+            var edit = repository.GetById(p.AppointmentId);
+            edit.AppointmentDate = p.AppointmentDate;
+            edit.Description = p.Description;
+            repository.Update(edit);
+            return RedirectToAction("Index");
+        }
+
     }
 }

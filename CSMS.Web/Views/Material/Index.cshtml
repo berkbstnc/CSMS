@@ -1,0 +1,68 @@
+﻿@model IEnumerable<CSMS.Models.ApplicationUser>
+
+@{
+    ViewBag.Title = "User List";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <div class="col">
+            Search (Mail Adress / Name)
+            <input type="text" class=" form-control" name="search" />
+        </div>
+    </div>
+    <br />
+    <div class="col">
+        <input type="submit" class="btn btn-secondary" value="Search" />
+    </div>
+    <br />
+
+
+}
+
+
+<hr />
+<table class="table">
+    <tr>
+        <th>
+            <a>Mail Adress</a>
+        </th>
+        <th>
+            <a>Name</a>
+        </th>
+        <th>
+            <a>Role</a>
+        </th>
+        <th></th>
+    </tr>
+
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name) @Html.DisplayFor(modelItem => item.Surname)
+            </td>
+            @foreach (var x in item.Roles)
+            {
+                foreach(var y in ViewBag.RoleNames)
+                    {
+                        if(x.RoleId == y.Id)
+                        {
+                            <td>@y.Name</td>
+                        }
+                    }
+
+            }
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-sm btn-primary" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-sm btn-danger" })
+            </td>
+        </tr>
+    }
+</table>

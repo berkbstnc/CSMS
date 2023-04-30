@@ -8,7 +8,7 @@
 <p>
     @Html.ActionLink("Add New Car", "Create", null, new { @class = "btn btn-sm btn-success" })
 </p>
-<table class="table">
+<table class="table" id="denemeTable">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Brand)
@@ -24,6 +24,9 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Plate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaintenanceDate)
         </th>
         <th></th>
     </tr>
@@ -45,6 +48,16 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Plate)
+            </td>
+            <td>
+                @{
+                    DateTime last = DateTime.Parse(item.MaintenanceDate).AddYears(2);
+                    DateTime now = DateTime.Now;
+                    TimeSpan diff = last.Subtract(now);
+                    int remaining = (int)diff.TotalDays;
+
+                }
+                The next maintenance is @remaining days later.
             </td>
             <td>
                 @Html.ActionLink("Fault Records", "FaultRecords", "Car", new { carid = item.CarId }, new { @class = "btn btn-sm btn-secondary" })
@@ -89,5 +102,19 @@
             var xid = $(btn).data('id');
             $('#hiddenId').val(xid);
         }
+
+        let table = document.querySelector('#denemeTable');
+        let tbody = table.querySelector('tbody');
+
+        myInfo.forEach((row) => {
+            let div = document.createElement('div');
+            tbody.appendChild(div);
+
+            row.forEach((cell) => {
+                let p = document.createElement('p');
+                p.innerHTML = cell;
+                div.appendChild(p);
+            });
+        });
     </script>
 }

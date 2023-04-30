@@ -17,60 +17,101 @@
     body {
         overflow-x: hidden;
         overflow-y: scroll;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        min-height: 100%;
+
+        display: flex;
+        flex-direction: column;
+    }
+
+    .footer {
+        position: relative;
+        left: 0;
+        bottom: 0;
+        background-color: red;
+        color: white;
+        text-align: center;
+    }
+
+    div#container {
+        /* The power of flexboxes! */
+        display: flex;
+        display: -webkit-flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+        div#container div#content {
+            /* Key part: Eat the remaining space! */
+            flex-grow: 1;
+        }
+
+        div#container footer {
+            flex-basis: 100px;
+        }
+
+    .content {
+        flex: auto;
     }
 </style>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="/Home">
-                <img class="logo" src="~/img/logov4.jpeg" style="width:75px" />
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="/Home"><h4>Home</h4></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/Home/About"><h4>About</h4></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/Home/Contact" tabindex="-1" aria-disabled="true"><h4>Contact</h4></a>
-                    </li>
+    <div id="container">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/Home">
+                    <img class="logo" src="~/img/logov4.jpeg" style="width:75px" />
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/Home"><h4>Home</h4></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Home/About"><h4>About</h4></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Home/Contact" tabindex="-1" aria-disabled="true"><h4>Contact</h4></a>
+                        </li>
 
-                    @if (Request.IsAuthenticated && User.IsInRole("Admin"))
-                    {
-                        <h4>
-                        <li class="nav-item"><a href="/Panel" class="nav-link text-white ">Admin Panel</a></li></h4>
+                        @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                        {
+                            <h4>
+                            <li class="nav-item"><a href="/Panel" class="nav-link text-white ">Admin Panel</a></li></h4>
 
-                    }
-                    @if (Request.IsAuthenticated && User.IsInRole("Customer"))
-                    {
-                        <h4>
-                        <li class="nav-item"><a href="/CustomerPanel" class="nav-link text-white">Customer Panel</a></li></h4>
+                        }
+                        @if (Request.IsAuthenticated && User.IsInRole("Customer"))
+                        {
+                            <h4>
+                            <li class="nav-item"><a href="/CustomerPanel" class="nav-link text-white">Customer Panel</a></li></h4>
 
-                    }
-                    @if (Request.IsAuthenticated && User.IsInRole("Mechanic"))
-                    {
-                        <h4>
-                        <li class="nav-item"><a href="/MechanicPanel" class="nav-link text-white">Mechanic Panel</a></li></h4>
+                        }
+                        @if (Request.IsAuthenticated && User.IsInRole("Mechanic"))
+                        {
+                            <h4>
+                            <li class="nav-item"><a href="/MechanicPanel" class="nav-link text-white">Mechanic Panel</a></li></h4>
 
-                    }
-                </ul>
+                        }
+                    </ul>
 
-                @Html.Partial("_LoginPartial")
+                    @Html.Partial("_LoginPartial")
 
+                </div>
             </div>
+        </nav>
+
+
+        <div id="content">
+            
+            @RenderBody()
         </div>
-    </nav>
-
-    @RenderBody()
-    <div class="body-content">
 
 
-        <footer class=" bg-dark text-white pt-5 pb-4">
+        <footer class=" bg-dark text-white pt-5 pb-4 footer">
 
             <div class=" text-center text-md-left">
 
@@ -83,7 +124,7 @@
                     <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
                         <h5 class="text-uppercase mb-4 font-weight-bold"></h5>
 
-                        
+
                     </div>
 
                     <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
@@ -104,7 +145,6 @@
 
         </footer>
     </div>
-
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
