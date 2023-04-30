@@ -8,16 +8,18 @@
 @using (Html.BeginForm())
 {
     <div class="row">
-        <div class="col">
-            Search (Mail Adress / Name)
+    <div>
+        Search (Mail Adress / Name)
+    </div>
+    <div class="row">
+        <div class="col-sm-2">
             <input type="text" class=" form-control" name="search" />
         </div>
+        <div class="col-sm-3">
+            <input type="submit" class="btn btn-secondary" value="Search" />
+        </div>
     </div>
-    <br />
-    <div class="col">
-        <input type="submit" class="btn btn-secondary" value="Search" />
     </div>
-    <br />
 
 
 }
@@ -50,13 +52,13 @@
             </td>
             @foreach (var x in item.Roles)
             {
-                foreach(var y in ViewBag.RoleNames)
+                foreach (var y in ViewBag.RoleNames)
+                {
+                    if (x.RoleId == y.Id)
                     {
-                        if(x.RoleId == y.Id)
-                        {
-                            <td>@y.Name</td>
-                        }
+                        <td>@y.Name</td>
                     }
+                }
 
             }
             <td>
