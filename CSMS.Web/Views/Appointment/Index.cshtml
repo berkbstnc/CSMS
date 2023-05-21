@@ -49,7 +49,7 @@ else
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Delete Car Information</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Delete Appointment</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
@@ -76,6 +76,8 @@ else
     }
     else if (User.IsInRole("Mechanic"))
     {
+        <p><b>There is no appointment!</b></p>
+
         if (0 < ViewBag.Appointments.Length)
         {
             <table class="table table-striped table-bordered">
@@ -130,7 +132,7 @@ else
                             <td>@appoinment.AppointmentDate.ToString("dd/MM/yyyy HH:mm:ss")</td>
                             <td>@(appoinment.Status == 0 ? "Active" : "Passive")</td>
                             <td>
-                                @Html.ActionLink("Fault Records", "FaultRecords", "Car", new { carid = appoinment.Car.CarId }, new { @class = "btn btn-sm btn-secondary" })
+                                @Html.ActionLink("Fault Records", "MechanicFaultRecords", "Car", new { carid = appoinment.Car.CarId }, new { @class = "btn btn-sm btn-secondary" })
                             </td>
                         </tr>
                     }

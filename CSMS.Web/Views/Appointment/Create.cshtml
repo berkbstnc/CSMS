@@ -19,7 +19,8 @@ else
     using (Html.BeginForm("Create", "Appointment", FormMethod.Get))
     {
         <label class="" for="date">Appointment Date</label>
-        <input type="date" name="date" value="@ViewBag.Date.ToString("yyyy-MM-dd")" class="form-control" />
+        <input type="date" name="date" min="@DateTime.Now.ToString("yyyy-MM-dd")" value="@ViewBag.Date.ToString("yyyy-MM-dd")" class="form-control" />
+        
         <button type="submit" class="btn btn-primary mt-2">Search</button>
     }
 
@@ -29,7 +30,7 @@ else
         <input type="hidden" name="mechanicId" value="@ViewBag.MechanicUser.Id" />
         <label class="" for="hour">Choose an Hour</label>
         <select name="hour" class="form-select">
-            @for (int i = 0; i < 24; i++)
+            @for (int i = 9; i < 22; i++)
             {
                 <option disabled="@(ViewBag.BookedHours[i] || DateTime.Parse(string.Format("{0} {1:00}:{2:00}", ViewBag.Date.ToString("yyyy-MM-dd"), i, 0)) < DateTime.Now)" value="@i">@string.Format("{0:00}:{1:00}", i, 0) @(ViewBag.BookedHours[i] ? "Reserved" : "")</option>
             }

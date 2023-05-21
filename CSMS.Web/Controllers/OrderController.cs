@@ -11,6 +11,7 @@ using Microsoft.AspNet.Identity.Owin;
 
 namespace CSMS.Web.Controllers
 {
+    [Authorize]
     public class OrderController : Controller
     {
         private readonly Repository<Car> Nuser = new Repository<Car>();
