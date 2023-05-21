@@ -35,11 +35,22 @@ else
                             <td>@appointment.MechanicUser.Name @appointment.MechanicUser.Surname</td>
                             <td>@appointment.Description</td>
                             <td>@appointment.AppointmentDate.ToString("dd/MM/yyyy HH:mm:ss")</td>
-                            <td>
-                                <button type="button" onclick="silmodal(this)" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#SilModal" data-id="@appointment.AppointmentId">
-                                    Delete
-                                </button>
-                            </td>
+                            @{
+                                int result = @DateTime.Compare(@appointment.AppointmentDate, @DateTime.Now);
+                            }
+
+                            @if (result >= 0)
+                            {
+                                <td>
+                                    <button type="button" onclick="silmodal(this)" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#SilModal" data-id="@appointment.AppointmentId">
+                                        Delete
+                                    </button>
+                                </td>
+                            }
+                            else
+                            {
+                                <td>Due Appointment</td>
+                            }
                         </tr>
                     }
                 </tbody>

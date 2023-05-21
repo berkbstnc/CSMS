@@ -105,8 +105,8 @@ namespace CSMS.Web.Controllers
             ViewResult view = View(record.Get(x => x.CarId == carid).OrderByDescending(x => x.RecordId).ToList());
             ViewBag.Title = !record.Get(x => x.CarId == carid).Any() ? "No Fault Record!" : "Fault Records for " + info.CustomerCar.Plate;
             string userId = User.Identity.GetUserId();
-            if (UserManager.IsInRole(userId, "Customer"))
-                view.MasterName = "~/Views/Shared/_LayoutCustomer.cshtml";
+            if (UserManager.IsInRole(userId, "Admin"))
+                view.MasterName = "~/Views/Shared/_LayoutAdmin.cshtml";
             else if (UserManager.IsInRole(userId, "Mechanic"))
                 view.MasterName = "~/Views/Shared/_LayoutMechanic.cshtml";
 
