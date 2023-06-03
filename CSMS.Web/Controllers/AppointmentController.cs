@@ -52,6 +52,7 @@ namespace CSMS.Web.Controllers
             {
                 Appointment[] appointments = repository.List().OrderByDescending(a => a.AppointmentDate).Where(a => currentUser.Cars.Any(c => a.CarId == c.CarId)).ToArray();
                 ViewBag.Appointments = appointments;
+                ViewBag.AppointmentCount = appointments.Count();
                 System.Diagnostics.Debug.WriteLine(appointments);
                 view.MasterName = "~/Views/Shared/_LayoutCustomer.cshtml";
             }

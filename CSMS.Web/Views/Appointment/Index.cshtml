@@ -14,7 +14,7 @@ else
 {
     if (User.IsInRole("Customer"))
     {
-        if (ViewBag.Appointments != null)
+        if (ViewBag.AppointmentCount != 0)
         {
 
             <table class="table table-striped table-bordered" id="denemeTable">
@@ -89,7 +89,7 @@ else
         }
         else
         {
-            <div class="alert alert-danger">There is no mechanic.</div>
+            <div class="alert alert-danger">There is no appointment record.</div>
         }
     }
     else if (User.IsInRole("Mechanic"))
@@ -125,7 +125,7 @@ else
         }
         else
         {
-            <p><b>There is no appointment!</b></p>
+            <div class="alert alert-danger">There is no active appointment.</div>
         }
     }
     else if (User.IsInRole("Admin"))

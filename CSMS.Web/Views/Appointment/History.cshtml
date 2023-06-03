@@ -15,7 +15,7 @@ else
 {
     if (User.IsInRole("Customer"))
     {
-        if (ViewBag.Appointments != null)
+        if (ViewBag.Appointments.Length > 0)
         {
             <table class="table table-striped table-bordered">
                 <thead>
@@ -42,7 +42,7 @@ else
         }
         else
         {
-            <div class="alert alert-danger">There is no mechanic.</div>
+            <div class="alert alert-danger">There is no appointment history.</div>
         }
     }
     else if (User.IsInRole("Mechanic"))
@@ -72,6 +72,10 @@ else
                     }
                 </tbody>
             </table>
+        }
+        else
+        {
+            <div class="alert alert-danger">There is no appointment history.</div>
         }
     }
 }
