@@ -24,7 +24,7 @@ else
                         <th>Mechanic Name</th>
                         <th>Description</th>
                         <th>Date</th>
-                        <th></th>
+                        <th>Status</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -38,19 +38,26 @@ else
                             @{
                                 int result = @DateTime.Compare(@appointment.AppointmentDate, @DateTime.Now);
                             }
-
-                            @if (result >= 0)
+                            @if (appointment.Status == 0)
                             {
-                                <td>
-                                    <button type="button" onclick="silmodal(this)" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#SilModal" data-id="@appointment.AppointmentId">
-                                        Delete
-                                    </button>
-                                </td>
+                                if (result >= 0)
+                                {
+                                    <td>
+                                        <button type="button" onclick="silmodal(this)" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#SilModal" data-id="@appointment.AppointmentId">
+                                            Delete
+                                        </button>
+                                    </td>
+                                }
+                                else
+                                {
+                                    <td>Due Appointment</td>
+                                }
                             }
                             else
                             {
                                 <td>Due Appointment</td>
                             }
+
                         </tr>
                     }
                 </tbody>
@@ -87,7 +94,6 @@ else
     }
     else if (User.IsInRole("Mechanic"))
     {
-        <p><b>There is no appointment!</b></p>
 
         if (0 < ViewBag.Appointments.Length)
         {
@@ -116,6 +122,10 @@ else
                     }
                 </tbody>
             </table>
+        }
+        else
+        {
+            <p><b>There is no appointment!</b></p>
         }
     }
     else if (User.IsInRole("Admin"))

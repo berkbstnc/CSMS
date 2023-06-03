@@ -63,7 +63,7 @@ namespace CSMS.Controllers
                 return View(await UserManager.Users.ToListAsync());
             }
 
-            return View(await UserManager.Users.Where(x => x.Name.Contains(search) || x.Surname.Contains(search) || x.Email.Contains(search)).ToListAsync());
+            return View(await UserManager.Users.Where(x => (x.Name + x.Surname).Contains(search) || x.Name.Contains(search) || x.Surname.Contains(search) || x.Email.Contains(search)).ToListAsync());
         }
 
         //

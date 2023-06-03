@@ -44,7 +44,7 @@ namespace CSMS.Web.Controllers
                 var user = Nuser.Get().OrderByDescending(x => x.CarId);
                 return View(user);
             }
-            var searchItem = Nuser.Get(x => x.ApplicationUser.Name.Contains(search) || x.ApplicationUser.Surname.Contains(search) || x.Plate.Contains(search)).ToList(); //Contains-StartsWith kullanılabilir.
+            var searchItem = Nuser.Get(x => (x.ApplicationUser.Name + x.ApplicationUser.Surname).Contains(search) || x.ApplicationUser.Name.Contains(search) || x.ApplicationUser.Surname.Contains(search) || x.Plate.Contains(search)).ToList(); //Contains-StartsWith kullanılabilir.
             return View(searchItem);
         }
 

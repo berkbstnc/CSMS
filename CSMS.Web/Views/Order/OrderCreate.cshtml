@@ -14,7 +14,7 @@
         </div>
         <div class="col-md-4">
             Arrival Date
-            <input type="date" name="ArrivalDate" class="form-control" required />
+            <input type="date" name="ArrivalDate" min="@DateTime.Now.ToString("yyyy-MM-dd")" value="@DateTime.Now.ToString("yyyy-MM-dd")" class="form-control" required />
         </div>
     </div>
     <div class="row">
